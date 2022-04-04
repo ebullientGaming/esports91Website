@@ -1,0 +1,48 @@
+.txt_input {
+  background: #383d67;
+  border: none;
+  width: 260px;
+  height: 36px;
+  border-radius: 8px;
+  color: white;
+  padding-left: 10px;
+}
+.snd_btn {
+  background: #ff0882;
+  color: white;
+  width: 100%;
+  font-size: 12px;
+  padding: 8px;
+}
+
+::-webkit-input-placeholder {
+  /* Edge */
+  color: #6a6f95;
+  font-size: 12px;
+  padding-left: 6px;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer */
+  color: #6a6f95;
+  font-size: 12px;
+  padding-left: 6px;
+}
+
+::placeholder {
+  color: #6a6f95;
+  font-size: 12px;
+  padding-left: 6px;
+}
+::ng-deep .otp-input {
+  width: 40px !important;
+  height: 40px !important;
+  background: #383d67;
+  border: #383d67 !important;
+  color: white;
+  font-size: 16px !important;
+  margin-right: 20px !important;
+}
+.ng_otp {
+  padding-left: 23px;
+}

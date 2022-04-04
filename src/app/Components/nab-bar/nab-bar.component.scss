@@ -1,0 +1,67 @@
+.profile_pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #62667e;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #70759b;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #70759b;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #70759b;
+}
+.loader_container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 99;
+}
+#dropdownMenuButton:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  color: #16181b;
+  text-decoration: none;
+  background-color: #ff0882;
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.dot_pos {
+  position: absolute;
+  top: 20px;
+  right: 52px;
+}
+.nav-pddng {
+  padding: 10px 40px 8px;
+}
+.lgin {
+  margin-right: 15px;
+  background: #ff0882;
+  color: white;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.btn_prfl:focus {
+  box-shadow: none;
+}

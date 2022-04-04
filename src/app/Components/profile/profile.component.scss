@@ -1,0 +1,222 @@
+.prfl_det {
+  color: white;
+  text-align: center;
+  background: #2d325a;
+  padding: 0px 0px 25px;
+  margin: 90px auto;
+  max-width: 600px;
+  border-radius: 12px;
+}
+.prfl_link_det {
+  color: white;
+  background: #2d325a;
+  padding: 20px 25px;
+  margin: 20px auto;
+  max-width: 600px;
+  border-radius: 12px;
+}
+.profile_pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.prfl_det_inner {
+  position: relative;
+  top: -44px;
+}
+.dlt_btn {
+  background: rgba(74, 80, 125, 0.6);
+  width: 130px;
+}
+.edt_btn {
+  width: 20px;
+  margin-left: 10px;
+}
+.trsh_btn_img {
+  width: 20px;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+.crt_lnk_pos {
+  margin: 0px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 600px;
+}
+.modal_close {
+  position: absolute;
+  top: 12px;
+  right: 20px;
+  width: 15px;
+  z-index: 10;
+  cursor: pointer;
+}
+.cust_modal {
+  padding: 20px;
+}
+.prfl_det_pic {
+  position: relative;
+  top: -150px;
+  left: 32px;
+}
+.edt_btn_white {
+  background: #63667e;
+  padding: 3px;
+  width: 25px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.anchr_vhr {
+  color: white;
+  cursor: pointer;
+  overflow-wrap: break-word;
+}
+.anchr_vhr:hover {
+  color: #ff0882;
+  text-decoration: none;
+}
+
+.analysys {
+  color: #bebebe;
+  font-size: 14px;
+  background: rgba(74, 80, 125, 0.6);
+  width: 130px;
+}
+.analysys img {
+  content: url("/assets/images/icons/bar-chart-2.png");
+  width: 20px;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+.analysysHover {
+  font-size: 14px;
+  background: #ff0882;
+  color: #ffffff;
+  width: 130px;
+}
+.analysysHover img {
+  content: url("/assets/images/icons/bar-chart-2-white.png");
+}
+::ng-deep .apexcharts-menu {
+  color: black;
+}
+::ng-deep .apexcharts-legend-text {
+  color: white !important;
+}
+::ng-deep .apexcharts-tooltip {
+  background: #f3f3f3;
+  color: #2d325a;
+}
+::ng-deep .mat-select-value-text {
+  color: white;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+  transform: translateY(5%) !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  padding: 0px 14px !important;
+  border-radius: 4px !important;
+  background: #464b75 !important;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 0.15em 0 0.75em 0 !important;
+}
+::ng-deep .mat-select-arrow {
+  color: white;
+}
+.plyr_tem {
+  color: white;
+  max-width: 600px;
+  margin: 0px auto;
+  justify-content: space-around;
+  display: flex;
+  margin-bottom: 90px;
+}
+.voted_plr {
+  text-align: center;
+  background: #2d325a;
+  padding: 8px 25px;
+  padding: 10px 40px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  min-height: 105px;
+  min-width: 150px;
+}
+.voted_tm {
+  text-align: center;
+  background: #2d325a;
+  padding: 1px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  min-height: 180px;
+  min-width: 220px;
+}
+.mb_15 {
+  margin-bottom: 15px;
+}
+.tm_txt_up {
+  background: linear-gradient(
+    359.52deg,
+    rgba(246, 81, 100, 0) 0.56%,
+    #6ac269 114.18%
+  );
+  margin-top: 3%;
+  height: 36px;
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tm_txt_down {
+  background: linear-gradient(
+    359.52deg,
+    rgba(246, 81, 100, 0) 0.56%,
+    #f65164 114.18%
+  );
+  margin-top: 3%;
+  height: 36px;
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #2d325a;
+  border-radius: 30px;
+  color: white;
+}
+
+.txt_input {
+  background: #383d67;
+  border: none;
+  height: 36px;
+  border-radius: 8px;
+  color: white;
+  padding-left: 10px;
+  font-size: 12px;
+}
+.custom-dropzone {
+  background: transparent;
+}
+.edt_btn {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .crt_lnk_pos {
+    width: 100%;
+  }
+  .voted_tm {
+    min-width: 145px;
+  }
+  .prfl_det_pic {
+    left: 10px;
+  }
+}

@@ -1,0 +1,575 @@
+<div class="main">
+  <section class="inner-wrap">
+    <div class="prfl_det">
+      <div class="prfl_det_inner">
+        <img
+          [src]="getImageUrl(profileDetails?.profile_pic)"
+          class="profile_pic"
+        />
+      </div>
+      <div class="prfl_det_pic">
+        <span (click)="editProfileDetails()"
+          ><img src="assets/images/icons/edit_white.png" class="edt_btn_white"
+        /></span>
+      </div>
+      <div style="margin-top: -65px">
+        Profile Title: {{ profileDetails?.first_name }}
+        {{ profileDetails?.last_name }}
+      </div>
+      <div class="mb-3 mt-3">
+        <span
+          >My Linktree:
+          <a
+            href="http://143.110.178.62/#/linkedtree/{{
+              profileDetails?.user_name
+            }}"
+            target="_blank"
+            class="anchr_vhr"
+            >http://143.110.178.62/#/linkedtree/{{
+              profileDetails?.user_name
+            }}</a
+          ></span
+        >
+        <div>
+          <button
+            class="btn mt-3"
+            style="
+              background: #ff0882;
+              color: white;
+              min-width: 98px;
+              border-radius: 6px;
+            "
+          >
+            Share
+          </button>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-around">
+        <div>
+          <button
+            type="button"
+            class="btn btn-block mb-2 mt-3"
+            [ngClass]="getAnalysisClass(profileView)"
+            (click)="profileView = !profileView"
+          >
+            <span>
+              <img
+                src="assets/images/icons/bar-chart-2.png"
+                class="trsh_btn_img" /></span
+            >Analytics
+          </button>
+        </div>
+        <div>
+          <button
+            class="btn btn-block mb-2 mt-3"
+            (click)="goToPreview(profileDetails?.user_name)"
+            style="
+              background: #3e446f;
+              color: white;
+              min-width: 160px;
+              border-radius: 5p;
+            "
+          >
+            Preview
+          </button>
+        </div>
+      </div>
+      <div *ngIf="profileView">
+        <div class="chart_header mt-4">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div style="margin-left: 32px">Number of clicks</div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-select [(value)]="selectedTimeFrame">
+                  <mat-option value="day" (click)="getProfileclickData(false)"
+                    >Day</mat-option
+                  >
+                  <mat-option value="week" (click)="getProfileclickData(false)"
+                    >Week</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div id="chart">
+          <apx-chart
+            [series]="profileChartOptions?.series"
+            [chart]="profileChartOptions?.chart"
+            [dataLabels]="profileChartOptions?.dataLabels"
+            [fill]="profileChartOptions.fill"
+            [plotOptions]="profileChartOptions?.plotOptions"
+            [xaxis]="profileChartOptions?.xaxis"
+          >
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="plyr_tem">
+      <div>
+        <div class="mb_15">Voted Player</div>
+        <div *ngFor="let item of players" class="voted_tm">
+          <div>
+            <img
+              [src]="getImageUrl(item.profile_pic_without_bg)"
+              style="height: 136px; object-fit: cover"
+            />
+          </div>
+          <div [ngClass]="getUPDownVoteClass(item.isUporDown)">
+            {{ item.ign }}
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="mb_15">Voted Teams</div>
+        <div *ngFor="let item of teams" class="voted_tm">
+          <div>
+            <img
+              [src]="getImageUrl(item.team_logo)"
+              style="height: 136px; object-fit: cover"
+            />
+          </div>
+          <div [ngClass]="getUPDownVoteClass(item.isUporDown)">
+            {{ item.name }} {{ item.isUporDown }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="white_clr crt_lnk_pos">
+      <div>Create Links</div>
+      <div>
+        <button
+          class="btn"
+          style="
+            background: #ff0882;
+            color: white;
+            margin: 0 auto;
+            width: 165px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+          "
+          (click)="addLink()"
+        >
+          Add Link
+        </button>
+      </div>
+    </div>
+    <div
+      class="prfl_link_det"
+      *ngFor="let link of links; index as i; first as isFirst"
+    >
+      <div class="d-flex justify-content-between">
+        <span>{{ link.name }}</span>
+        <span>
+          <span (click)="editLink(link)"
+            ><img src="assets/images/icons/edit.png" class="edt_btn"
+          /></span>
+        </span>
+      </div>
+      <div class="mt-3">
+        <span>{{ link.value }}</span>
+      </div>
+      <div
+        style="display: flex; justify-content: space-between; margin-top: 10px"
+      >
+        <button
+          type="button"
+          class="btn btn-block mb-2 mt-3"
+          [ngClass]="getAnalysisClass(link.isDisplay)"
+          (click)="updateAnalysicStatus(link)"
+        >
+          <span>
+            <img
+              src="assets/images/icons/bar-chart-2.png"
+              class="trsh_btn_img" /></span
+          >Analytics
+        </button>
+        <button
+          type="button"
+          style="color: #bebebe; font-size: 14px"
+          (click)="deleteLink(i)"
+          class="btn btn-block mb-2 mt-3 dlt_btn"
+        >
+          <span>
+            <img
+              src="assets/images/icons/trash.png"
+              class="trsh_btn_img" /></span
+          >Delete
+        </button>
+      </div>
+      <div *ngIf="link.isDisplay">
+        <div class="chart_header mt-4">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div style="margin-left: 32px">Number of clicks</div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-select [(value)]="selectedTimeFrame">
+                  <mat-option value="day" (click)="getclickData(link, false)"
+                    >Day</mat-option
+                  >
+                  <mat-option value="week" (click)="getclickData(link, false)"
+                    >Week</mat-option
+                  >
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div id="chart">
+          <apx-chart
+            [series]="link.chartOptions?.series"
+            [chart]="link.chartOptions?.chart"
+            [dataLabels]="link.chartOptions?.dataLabels"
+            [fill]="link.chartOptions.fill"
+            [plotOptions]="link.chartOptions?.plotOptions"
+            [xaxis]="link.chartOptions?.xaxis"
+          >
+          </apx-chart>
+        </div>
+      </div>
+    </div>
+    <div class="white_clr crt_lnk_pos mt-5">
+      <button
+        class="btn dlt_btn"
+        style="margin: 0 auto; color: #bebebe; font-size: 14px"
+        (click)="logOut()"
+      >
+        Logout
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- certificate modal start -->
+
+<div
+  class="modal fade"
+  id="link"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content cust_modal">
+      <div class="modal_close" data-dismiss="modal" aria-label="Close">
+        <img
+          src="/assets/img/ICONS/cross_white.png"
+          class="img-fluid"
+          width="100%"
+          alt=""
+        />
+      </div>
+      <div class="modal-body">
+        <div data-dismiss="modal" aria-label="Close" class="modal_close">
+          <img
+            src="/assets/images/icons/cross_white.png"
+            width="100%"
+            alt=""
+            class="img-fluid"
+          />
+        </div>
+        <ng-container class="mb-2">
+          <div class="mb-4">
+            <span style="font-weight: 600; font-size: 18px" *ngIf="true"
+              >Add Link</span
+            >
+          </div>
+        </ng-container>
+        <form #linkForm="ngForm" (ngSubmit)="linkSubmit(linkForm)">
+          <input
+            hidden
+            class="form-control int_dsgn"
+            id="linkId"
+            type="text"
+            name="linkId"
+            [(ngModel)]="link.id"
+            placeholder=" "
+          />
+
+          <div class="form-group">
+            <div>
+              <div class="has-float-label frm_cnt_wdt">
+                <label for="linkTitle" style="font-size: 14px">Name</label>
+                <input
+                  class="form-control txt_input"
+                  id="linkTitle"
+                  type="text"
+                  name="linkTitle"
+                  [(ngModel)]="link.name"
+                  placeholder="Enter Name"
+                  [ngClass]="{
+                    invalid:
+                      linkSubmitted && !linkForm.controls.linkTitle?.valid
+                  }"
+                  required
+                />
+              </div>
+              <div *ngIf="linkSubmitted && !linkForm.controls.linkTitle?.valid">
+                <img
+                  src="/assets/img/ICONS/info.png"
+                  alt="logo"
+                  style="width: 16px"
+                />
+              </div>
+            </div>
+            <div *ngIf="linkSubmitted && !linkForm.valid">
+              <span
+                *ngIf="!linkForm.controls.certificateTitle?.valid"
+                class="error_msg"
+                >Title is required</span
+              >
+            </div>
+          </div>
+          <div class="form-group">
+            <div>
+              <div class="has-float-label frm_cnt_wdt">
+                <label for="linkValue" style="font-size: 14px">Link</label>
+                <input
+                  class="form-control txt_input"
+                  id="linkValue"
+                  type="text"
+                  name="linkValue"
+                  [(ngModel)]="link.value"
+                  placeholder="Enter Link"
+                  [ngClass]="{
+                    invalid:
+                      linkSubmitted && !linkForm.controls.linkValue?.valid
+                  }"
+                  required
+                />
+              </div>
+              <div *ngIf="linkSubmitted && !linkForm.controls.linkValue?.valid">
+                <img
+                  src="/assets/img/ICONS/info.png"
+                  alt="logo"
+                  style="width: 16px"
+                />
+              </div>
+            </div>
+            <div
+              *ngIf="
+                linkSubmitted &&
+                !linkForm.controls.certificateDescription?.valid
+              "
+            >
+              <span
+                *ngIf="!linkForm.controls.certificateDescription?.valid"
+                class="error_msg"
+                >Description is required</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="form-group"
+            style="display: flex; justify-content: flex-end"
+          >
+            <div></div>
+            <div style="margin-left: 10px">
+              <button
+                type="submit"
+                style="
+                  background: #ff0882;
+                  color: white;
+                  width: 120px;
+
+                  font-size: 14px;
+                "
+                class="btn btn-block mb-2 mx-auto mt-3 sbm_btn"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- certificate modal end -->
+
+<!-- profile modal start -->
+<div
+  class="modal fade"
+  id="profile"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="profileModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content cust_modal">
+      <div class="modal_close" data-dismiss="modal" aria-label="Close">
+        <img
+          src="/assets/img/ICONS/cross_white.png"
+          class="img-fluid"
+          width="100%"
+          alt=""
+        />
+      </div>
+      <div class="modal-body">
+        <div data-dismiss="modal" aria-label="Close" class="modal_close">
+          <img
+            src="/assets/images/icons/cross_white.png"
+            width="100%"
+            alt=""
+            class="img-fluid"
+          />
+        </div>
+        <ng-container class="mb-2">
+          <div class="mb-4">
+            <span style="font-weight: 600; font-size: 18px" *ngIf="true"
+              >Add Profile Details</span
+            >
+          </div>
+        </ng-container>
+        <form #profileForm="ngForm" (ngSubmit)="profileSubmit(profileForm)">
+          <div class="form-group">
+            <div
+              class="custom-dropzone mt-2 mb-2"
+              ngx-dropzone
+              [accept]="'image/*'"
+              (change)="logoUpload($event)"
+              [maxFileSize]="1000000"
+            >
+              <ngx-dropzone-label>
+                <img
+                  src="/assets/images/icons/upload.png"
+                  style="height: 38px"
+                  class="img-fluid"
+                />
+                <br />
+                <span style="color: #969696; font-size: 12px"
+                  >Drag & drop or
+                  <span style="color: #269f90">browse</span></span
+                >
+                <!-- <i class="fa fa-upload" aria-hidden="true"></i> (Recommended Size: 400 * 300) -->
+              </ngx-dropzone-label>
+              <ngx-dropzone-image-preview
+                class="custom-preview"
+                ngProjectAs="ngx-dropzone-preview"
+                *ngFor="let l of logo"
+                [file]="l"
+                [removable]="true"
+                (removed)="logoRemove(l)"
+              >
+              </ngx-dropzone-image-preview>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div>
+              <div class="has-float-label frm_cnt_wdt">
+                <label for="first_name" style="font-size: 14px"
+                  >First Name</label
+                >
+                <input
+                  class="form-control txt_input"
+                  id="first_name"
+                  type="text"
+                  name="first_name"
+                  [(ngModel)]="profileDetails.first_name"
+                  placeholder=" "
+                />
+              </div>
+              <div
+                *ngIf="
+                  profileSubmitted && !profileForm.controls.first_name?.valid
+                "
+              >
+                <img
+                  src="/assets/img/ICONS/info.png"
+                  alt="logo"
+                  style="width: 16px"
+                />
+              </div>
+            </div>
+            <div *ngIf="profileSubmitted && !profileForm.valid">
+              <span
+                *ngIf="!profileForm.controls.first_name?.valid"
+                class="error_msg"
+                >Title is required</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div>
+              <div class="has-float-label frm_cnt_wdt">
+                <label for="last_name" style="font-size: 14px">Last Name</label>
+                <input
+                  class="form-control txt_input"
+                  id="last_name"
+                  type="text"
+                  name="last_name"
+                  [(ngModel)]="profileDetails.last_name"
+                  placeholder=" "
+                  [ngClass]="{
+                    invalid:
+                      profileSubmitted && !profileForm.controls.last_name?.valid
+                  }"
+                  required
+                />
+              </div>
+              <div
+                *ngIf="profileSubmitted && !linkForm.controls.last_name?.valid"
+              >
+                <img
+                  src="/assets/img/ICONS/info.png"
+                  alt="logo"
+                  style="width: 16px"
+                />
+              </div>
+            </div>
+            <div *ngIf="profileSubmitted && !profileForm.valid">
+              <span
+                *ngIf="!profileForm.controls.last_name?.valid"
+                class="error_msg"
+                >Title is required</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="form-group"
+            style="display: flex; justify-content: flex-end"
+          >
+            <div></div>
+            <div style="margin-left: 10px">
+              <button
+                type="submit"
+                style="
+                  background: #ff0882;
+                  color: white;
+                  width: 120px;
+
+                  font-size: 14px;
+                "
+                class="btn btn-block mb-2 mx-auto mt-3 sbm_btn"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <p-toast position="bottom-left" key="bl"></p-toast> -->
+</div>
+<!-- profile modal end -->

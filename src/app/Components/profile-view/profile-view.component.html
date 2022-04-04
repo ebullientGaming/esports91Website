@@ -1,0 +1,29 @@
+<div class="main">
+  <section class="inner-wrap-profile">
+    <div class="prfl_det">
+      <div class="prfl_det_inner">
+        <img
+          [src]="getImageUrl(profileData?.profile_pic)"
+          class="profile_pic"
+        />
+        <div class="mt-3">
+          {{ profileData?.first_name }} {{ profileData?.last_name }}
+        </div>
+      </div>
+
+      <div
+        *ngFor="let item of linkedTree; index as i"
+        style="padding: 10px 10px"
+      >
+        <button class="btn prfl_btn" (click)="redirectLink(item)">
+          {{ item.name }}
+        </button>
+      </div>
+    </div>
+  </section>
+  <section class="bottom">
+    <a href="http://143.110.178.62/#/">
+      <img src="/assets/images/icons/logo.png" />
+    </a>
+  </section>
+</div>

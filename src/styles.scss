@@ -1,0 +1,98 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Poppins_Regular';
+    src: url('/assets/fonts/Poppins-Regular.ttf') format('truetype');
+}
+* {
+    font-family: Poppins_Regular;
+  }
+body{
+    background-color: #1e223f !important;
+}
+nav{
+    background: #2D325A;
+}
+
+nav a img{
+    background: #2D325A;
+}
+.gray_clr{
+    color: #D0D0D0;
+}
+.pink_clr{
+    color: #FF0882;
+}
+.white_clr{
+    color: white;
+}
+nav ul li{
+    background: #2D325A;
+}
+nav #navbarSupportedContent{
+    background: #2D325A;
+}
+.main{
+    background-color: #1e223f;
+}
+.inner-wrap{
+    margin: 0 auto;
+    max-width: 1170px;
+    width: 100%;
+    padding: 0px 10px;
+  }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.page-item.disabled .page-link {
+    color: white;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #1e223f;
+    border-color: #1e223f;
+}
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #FF0882;
+    border-color: #FF0882;
+    border-radius: 12px;
+}
+
+.page-link {
+    color: white !important;
+    background-color: transparent;
+    border: none;
+}
+.page-link:hover {
+    z-index: 2;
+    color: white;
+    text-decoration: none;
+    background: #2D325A;
+    border-color: #2D325A;
+    border-radius: 12px;
+}
+
+.downVote{
+    min-width: 160px;
+}
+.upVoteActive{
+    min-width: 160px;
+}
+.downVoteActive{
+    min-width: 160px;
+}
+
+.crsr_pntr{
+    cursor: pointer !important;
+  }
+
+  .loader_container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 99;
+  }

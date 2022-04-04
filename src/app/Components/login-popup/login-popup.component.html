@@ -1,0 +1,100 @@
+<div
+  bsModal
+  #createOrEditModal="bs-modal"
+  class="modal fade"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="createOrEditModal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg" style="width: 370px">
+    <div class="modal-content" style="background: #2d325a; border-radius: 30px">
+      <form novalidate autocomplete="off">
+        <div class="modal-body">
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              padding: 30px 0px 40px;
+            "
+          >
+            <div class="mb-3">
+              <img
+                src="assets/images/icons/popupLogo.png"
+                style="width: 150px"
+              />
+            </div>
+            <div
+              class="form-group"
+              style="display: flex; flex-direction: column; color: white"
+            >
+              <label for="login" style="font-size: 20px" *ngIf="!isSendOtp"
+                >Login
+              </label>
+              <label
+                for="login"
+                style="
+                  font-size: 18px;
+                  margin-bottom: 15px;
+                  font-weight: 600;
+                  padding-left: 23px;
+                "
+                *ngIf="isSendOtp"
+                >ENTER OTP
+              </label>
+              <input
+                name="login"
+                [(ngModel)]="loginValue"
+                class="txt_input mt-1"
+                *ngIf="!isSendOtp"
+                placeholder="Mobile Number"
+              />
+              <ng-otp-input
+                class="ng_otp"
+                (onInputChange)="onOtpChange($event)"
+                [config]="{ length: 4 }"
+                *ngIf="isSendOtp"
+              ></ng-otp-input>
+              <div class="mt-4">
+                <button
+                  class="btn snd_btn"
+                  (click)="save()"
+                  *ngIf="!isSendOtp"
+                  style="font-size: 14px; font-weight: 600; border-radius: 10px"
+                >
+                  SEND OTP
+                </button>
+                <button
+                  class="btn snd_btn"
+                  (click)="login()"
+                  *ngIf="isSendOtp"
+                  style="
+                    margin-left: 27px;
+                    width: 83%;
+                    height: 45px;
+                    border-radius: 10px;
+                    font-size: 14px;
+                    font-weight: 600;
+                  "
+                >
+                  LOGIN
+                </button>
+              </div>
+              <div class="mt-2 text-center" *ngIf="isSendOtp">
+                <button
+                  class="btn"
+                  style="color: #ff0882"
+                  [disabled]="isSendbuttonDisable"
+                  (click)="save()"
+                >
+                  Resend Otp ({{ count }})
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

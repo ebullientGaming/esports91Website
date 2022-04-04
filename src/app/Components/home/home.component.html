@@ -1,0 +1,454 @@
+<div *ngIf="loader" class="loader_container">
+  <mat-progress-spinner
+    style="top: 40%; left: 50%"
+    mode="indeterminate"
+  ></mat-progress-spinner>
+</div>
+<div class="main">
+  <div class="slider">
+    <ngb-carousel *ngIf="images">
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img
+            src="assets/images/home/3.jpeg"
+            class="picsumImg"
+            alt="Random first slide"
+            style="width: 100%; height: 88vh; object-fit: cover"
+          />
+        </div>
+        <div class="carousel-caption"></div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img
+            src="assets/images/home/2.jpeg"
+            class="picsumImg"
+            alt="Random second slide"
+            style="width: 100%; height: 88vh; object-fit: cover"
+          />
+        </div>
+        <div class="carousel-caption"></div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img
+            src="assets/images/home/1.jpeg"
+            class="picsumImg"
+            alt="Random third slide"
+            style="width: 100%; height: 88vh; object-fit: cover"
+          />
+        </div>
+        <div class="carousel-caption"></div>
+      </ng-template>
+      <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img
+            src="assets/images/home/4.jpeg"
+            class="picsumImg"
+            alt="Random third slide"
+            style="width: 100%; height: 88vh; object-fit: cover"
+          />
+        </div>
+        <div class="carousel-caption"></div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+  <div class="filter_player">
+    <div class="radio_ul" *ngFor="let template of chartArr; let i = index">
+      <div class="radio_li">
+        <div class="">
+          <input
+            type="radio"
+            name="used_by_single_user"
+            id="radio{{ i }}"
+            [value]="template"
+            [(ngModel)]="templateTypeSelected"
+            (click)="getDataByTemplate(template, i)"
+          />
+          <label for="radio{{ i }}" class="back_shadow">
+            <div class="total_ref">
+              <div class="ref_img">
+                <img
+                  [src]="template.url + '.png'"
+                  [ngClass]="getClassName(template.url)"
+                />
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="inner-wrap">
+    <div class="upcmng_trmnts" hidden>
+      <h2>Upcoming Tournaments</h2>
+      <div class="upcmng_trmnts_outer" *ngFor="let item of items; index as i">
+        <div class="upcmng_trmnts_banner_image"></div>
+        <div class="upcmng_trmnts_dtls">
+          <div>PUBG Global Tounament</div>
+          <div class="upcmng_trmnts_dtls_inner_img">
+            <img src="/assets/images/icons/pubg.png" />
+          </div>
+        </div>
+        <div>
+          <img src="/assets/images/icons/calendar.png" /> 20 August 2021
+        </div>
+        <div>
+          <img src="/assets/images/icons/clock.png" /> Starts 2:00 PM IST
+        </div>
+      </div>
+    </div>
+    <div class="trdng_plr">
+      <div class="row trdn_vwall mb-5">
+        <div class="float-left">Trending Players</div>
+        <div class="float-right">
+          <a [routerLink]="['/trendingPlayer']" class="pink_clr"> View All </a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-5">
+          <div
+            class="trendingPlayer_first"
+            *ngFor="let data of trendingPlayer | slice: 0:1; let i = index"
+          >
+            <div
+              class="trendingPlayer_first_img crsr_pntr crsr_pntr"
+              (click)="gotoPlayers(data)"
+            >
+              <img
+                [src]="getImageUrl(data?.profile_pic_without_bg)"
+                class="plr_img"
+              />
+            </div>
+            <div
+              class="mt-3 mb-3 crsr_pntr crsr_pntr"
+              style="font-size: 22px"
+              (click)="gotoPlayers(data)"
+            >
+              {{ data.ign }}
+            </div>
+            <div class="d-flex mb_bt">
+              <button
+                class="btn"
+                [ngClass]="getUpVoteClass('player', data.id)"
+                (click)="upVote('player', data.id)"
+                style="height: 37px"
+              >
+                <img
+                  src="assets/images/icons/up_red.png"
+                  style="width: 15px; margin-right: 10px; margin-bottom: 3px"
+                />
+                <span style="margin-right: 10px">Upvote</span
+                >{{ data.upvote_score }}
+              </button>
+              <button
+                class="btn"
+                [ngClass]="getDownVoteClass('player', data.id)"
+                (click)="downVote('player', data.id)"
+                style="height: 37px; margin-right: 0px"
+              >
+                <img
+                  src="assets/images/icons/down_red.png"
+                  style="width: 15px; margin-right: 10px"
+                />
+                <span style="margin-right: 10px">Downvote</span
+                >{{ data.downvote_score }}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+          <div class="trdng_plr_lst">
+            <div
+              class="trdng_plr_lst_iner"
+              *ngFor="let data of trendingPlayer | slice: 1:5; let i = index"
+            >
+              <div
+                class="trdng_plr_lst_iner_img_bck crsr_pntr"
+                (click)="gotoPlayers(data)"
+              >
+                <img
+                  [src]="getImageUrl(data?.profile_pic_without_bg)"
+                  class="plr_img_wdt"
+                  style=""
+                />
+              </div>
+              <div>
+                <div (click)="gotoPlayers(data)" class="fnt14 mrgn-2 crsr_pntr">
+                  #{{ i + 2 }}
+                </div>
+                <div (click)="gotoPlayers(data)" class="txt_hgt crsr_pntr">
+                  {{ data.ign }}
+                </div>
+                <div class="d-flex btn_drct_Plr">
+                  <button
+                    class="btn"
+                    [ngClass]="getUpVoteClass('player', data.id)"
+                    (click)="upVote('player', data.id)"
+                  >
+                    <img
+                      src="assets/images/icons/up_red.png"
+                      style="width: 14px; margin-right: 10px ;"
+                    />
+                    <span style="margin-right: 10px">Upvote</span
+                    >{{ data.upvote_score }}
+                  </button>
+                  <button
+                    class="btn mt_tp"
+                    [ngClass]="getDownVoteClass('player', data.id)"
+                    (click)="downVote('player', data.id)"
+                  >
+                    <img
+                      src="assets/images/icons/down_red.png"
+                      style="width: 15px; margin-right: 10px"
+                    />
+                    <span style="margin-right: 10px">Downvote</span
+                    >{{ data.downvote_score }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="trdng_tms mt-5">
+      <div class="row trdn_vwall mb-5">
+        <div class="float-left">Trending Teams</div>
+        <div class="float-right">
+          <a [routerLink]="['/trendingTeams']" class="pink_clr dc">
+            View All
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-5">
+          <div
+            class="trdng_tms_card_outer"
+            *ngFor="let data of trendingTeam | slice: 0:1; let i = index"
+          >
+            <div
+              class="trdng_tms_card trdng_tms_card_bck_img"
+              [ngStyle]="{
+                'background-image': 'url(' + getImageUrl(data?.team_logo) + ')'
+              }"
+              style="filter: blur(2px)"
+            ></div>
+            <div
+              style="position: absolute; text-align: center"
+              (click)="gotoTeams(data)"
+            >
+              <img
+                [src]="getImageUrl(data?.team_logo)"
+                style="max-width: 110px; max-height: 110px; margin-top: 50px"
+              />
+              <div>{{ data?.name }}</div>
+            </div>
+
+            <div class="d-flex">
+              <button
+                class="btn"
+                [ngClass]="getUpVoteClass('team', data.id)"
+                (click)="upVote('team', data.id)"
+                style="height: 37px"
+              >
+                <img
+                  src="assets/images/icons/up_red.png"
+                  style="width: 15px; margin-right: 10px; margin-bottom: 3px"
+                />
+                <span style="margin-right: 10px"
+                  >Upvote {{ data.upvote_score }}</span
+                >
+              </button>
+              <button
+                class="btn"
+                [ngClass]="getDownVoteClass('team', data.id)"
+                (click)="downVote('team', data.id)"
+                style="height: 37px; margin-right: 0"
+              >
+                <img
+                  src="assets/images/icons/down_red.png"
+                  style="width: 15px; margin-right: 10px"
+                />
+                <span style="margin-right: 10px"
+                  >Downvote {{ data.downvote_score }}</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-6">
+          <div *ngFor="let data of trendingTeam | slice: 1:5; let i = index">
+            <div style="position: relative">
+              <div class="trdng_tms_lst">
+                <div
+                  style="display: flex; align-items: center"
+                  (click)="gotoTeams(data)"
+                >
+                  <div>
+                    <img
+                      [src]="getImageUrl(data?.team_logo)"
+                      style="width: 90px; height: 90px; border-radius: 100%"
+                    />
+                  </div>
+                  <div
+                    style="margin-left: 15px; max-width: 100px; font-size: 18px"
+                  >
+                    {{ data?.name }}
+                  </div>
+                </div>
+                <div class="d-flex btn_drct">
+                  <button
+                    class="btn btn_mgrn_tp"
+                    [ngClass]="getUpVoteClass('team', data.id)"
+                    (click)="upVote('team', data.id)"
+                  >
+                    <img
+                      src="assets/images/icons/up_red.png"
+                      style="
+                        width: 15px;
+                        margin-right: 10px;
+                        margin-bottom: 3px;
+                      "
+                    />
+                    <span style="margin-right: 10px">Upvote</span
+                    >{{ data.upvote_score }}
+                  </button>
+                  <button
+                    class="btn btn_mgrn_tp"
+                    [ngClass]="getDownVoteClass('team', data.id)"
+                    (click)="downVote('team', data.id)"
+                  >
+                    <img
+                      src="assets/images/icons/down_red.png"
+                      style="width: 15px; margin-right: 10px"
+                    />
+                    <span style="margin-right: 10px">Downvote</span
+                    >{{ data.downvote_score }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="news" style="margin-top: 230px">
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            src="assets/images/home/phone.png"
+            style="margin-top: -210px; width: 400px"
+          />
+        </div>
+        <div class="col-md-6">
+          <div class="ph_mdl">
+            <div class="gnt_btn_cntr">
+              Create and Share your public link with others
+            </div>
+            <div class="mt-3" class="gnt_btn_cntr">
+              <button
+                class="btn gnt_btn"
+                style="padding: 12px 18px; font-size: 14px"
+                (click)="goToProfile()"
+              >
+                Generate your Link
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-5" style="font-size: 20px; font-weight: 600">News</div>
+    <div class="news_pddng">
+      <div class="row justify-content-between mt-4">
+        <div class="news_card1">
+          <a (click)="gotoNews()" style="text-decoration: none">
+            <div class="news_card1-logo">
+              <img src="assets/images/home/news1.png" class="img-fluid" />
+            </div>
+
+            <div style="padding: 15px">
+              <p class="news_card1-date mt-3">
+                Battlefield 2042 Discarded Map : the Latest Details Revealed
+              </p>
+              <h4 class="news_card1-title">
+                Battlefield 2042 Discarded Map details are out now. Also, the
+                game is all set to launch in October 2021. EA has revealed the
+                gameplay trailer in July 2021. EA has unveiled some interesting
+                new details about Battlefield 2042 Discarded map which is based
+                on Alang, a town in Gujarat’s Bhavnagar district. While
+                developer DICE has…
+              </h4>
+              <a
+                (click)="gotoNews()"
+                class="col-4 news_card1-link"
+                style="padding: 0"
+              >
+                <span class="viewHover">Read more</span>
+              </a>
+            </div>
+          </a>
+        </div>
+        <div class="news_card1">
+          <a (click)="gotoNews()" style="text-decoration: none">
+            <div class="news_card1-logo">
+              <img src="assets/images/home/news2.png" class="img-fluid" />
+            </div>
+
+            <div style="padding: 15px">
+              <p class="news_card1-date mt-3">
+                Galaxy Racer India Announced their BGMI Lineup
+              </p>
+              <h4 class="news_card1-title">
+                Galaxy Racer India today announced their BGMI lineup. As we
+                know, the BGIS – Battlegrounds Mobile India Series will begin
+                very soon. With the top players, Galaxy Racer has a strong
+                lineup now. About Galaxy Racer India: Galaxy Racer is an Esports
+                team headquartered in the United Arab Emirates. In addition,
+                professionals from 22 nations…
+              </h4>
+              <a
+                (click)="gotoNews()"
+                class="col-4 news_card1-link"
+                style="padding: 0"
+              >
+                <span class="viewHover">Read more</span>
+              </a>
+            </div>
+          </a>
+        </div>
+        <div class="news_card1">
+          <a (click)="gotoNews()" style="text-decoration: none">
+            <div class="news_card1-logo">
+              <img src="assets/images/home/news3.png" class="img-fluid" />
+            </div>
+            <div style="padding: 15px">
+              <p class="news_card1-date mt-3">Ankit Panth Joins M42 Esports</p>
+              <h4 class="news_card1-title">
+                Ankit Panth aka ‘V3nom’ is back into esports. He has joined the
+                Valorant roster of M42 Esports. Moreover, he might participate
+                in the Valorant Conquerors Championship(VCC). About Ankit Panth:
+                V3nom is the famous and the most loved CS:GO esports player in
+                India. He is the owner of the CS:GO team – ‘Team Brutality’.
+                Moreover, these…
+              </h4>
+              <a
+                (click)="gotoNews()"
+                class="col-4 news_card1-link"
+                style="padding: 0"
+              >
+                <span class="viewHover">Read more</span>
+              </a>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<app-login-popup #loginPopup (loadDataEvent)="loadData()"></app-login-popup>

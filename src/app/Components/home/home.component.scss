@@ -1,0 +1,380 @@
+.main {
+  background-color: #1e223f;
+  color: white;
+}
+body {
+  background-color: #1e223f !important;
+  color: white;
+}
+
+.news {
+  background: #2d325a;
+  padding: 40px 0px 0px;
+  border-radius: 20px;
+}
+.ph_mdl {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.gnt_btn {
+  background-color: #ff0882;
+  color: white;
+  margin-top: 10px;
+}
+
+.picsumImg {
+  min-height: 88vh !important;
+}
+
+.back_shadow {
+  margin: 2px 20px;
+}
+
+.total_ref {
+  padding: 20px 50px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ref_img {
+  border-radius: 15px;
+}
+
+.news_pddng {
+  padding: 0px 20px 20px 20px;
+}
+.ref_details_heading {
+  font-weight: 600;
+}
+.ref_details_body {
+  font-size: 20px;
+  color: #45c4ab;
+  font-weight: 600;
+}
+
+.radio_li input {
+  visibility: hidden;
+}
+
+.radio_li input + label {
+  border-radius: 16px;
+  background: #2d325a;
+}
+
+.radio_li input:checked + label {
+  border-radius: 16px;
+}
+.filter_player {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  flex-wrap: wrap;
+}
+.upcmng_trmnts_outer {
+  float: left;
+  width: 25%;
+  padding: 15px;
+  color: white;
+}
+.upcmng_trmnts_banner_image img {
+  width: 100%;
+}
+.upcmng_trmnts_dtls {
+  display: flex;
+  justify-content: space-between;
+}
+.upcmng_trmnts_dtls_inner_img img {
+  width: 40px;
+}
+
+.trdng_plr {
+  background: #2d325a;
+  padding: 40px;
+  border-radius: 20px;
+}
+.trdng_plr_lst_iner {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.trdng_tms {
+  background: #2d325a;
+  padding: 40px;
+  border-radius: 20px;
+}
+.trdng_tms_lst {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #40456e;
+  border-radius: 63px 15px 15px 64px;
+  margin-bottom: 40px;
+  height: 95px;
+}
+.trdng_plr_lst_iner_img_bck {
+  height: 110px;
+  width: 100px;
+  background: #40456e;
+  margin-right: 25px;
+  text-align: center;
+  border-radius: 10px 40px 10px 10px;
+}
+
+.trendingPlayer_first {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.trendingPlayer_first_img {
+  max-width: 311px;
+  background: #40456e;
+  border-radius: 20px 80px 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+.trdn_vwall {
+  display: flex;
+  justify-content: space-between;
+}
+
+.float-left {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.float-right {
+  color: #ff0882;
+}
+
+.trdng_tms_card_outer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.trdng_tms_card {
+  background: #40456e;
+  margin-bottom: 30px;
+  width: 310px;
+  height: 370px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.news_card1 {
+  cursor: pointer;
+  padding: 0px !important;
+  background: #2d325a;
+  border-radius: 10px;
+  width: 30%;
+}
+.news_card1-logo {
+  overflow: hidden;
+}
+.news_card1-date {
+  color: white;
+}
+.news_card1-title {
+  font-size: 14px;
+  color: white;
+}
+.news_card1-logo img {
+  width: 100%;
+  transition: 0.5s all ease-in-out;
+}
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+.news_card1-link span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff0882;
+}
+
+.upVoteActive img {
+  content: url("/assets/images/icons/up_white.png");
+}
+.downVoteActive img {
+  content: url("/assets/images/icons/down_white.png");
+}
+
+.icon_down {
+  width: 15px;
+  margin-right: 10px;
+}
+.pink_clr .dc {
+  text-decoration: none !important;
+}
+.codImg {
+  width: 88px;
+  margin: 6px 0px;
+}
+.csgoImg {
+  width: 80px;
+}
+.pubgImg {
+  width: 48px;
+  margin: 2px;
+}
+.lastImg {
+  width: 30px;
+  margin: 0px 10px;
+}
+
+.upVote:hover {
+  background-color: #ff0882;
+  color: white;
+}
+.downVote:hover {
+  background-color: #f65164;
+  color: white;
+}
+.upVote:hover img {
+  content: url("/assets/images/icons/up_white.png");
+}
+.downVote:hover img {
+  content: url("/assets/images/icons/down_white.png");
+}
+
+.upVote {
+  margin-right: 15px;
+  border: 2px solid #ff0882;
+  color: #ff0882;
+  min-width: 140px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.downVote {
+  margin-right: 15px;
+  border: 2px solid #f65164;
+  color: #f65164;
+  min-width: 140px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.upVoteActive {
+  margin-right: 15px;
+  background: #ff0882;
+  color: white;
+  min-width: 140px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.downVoteActive {
+  margin-right: 15px;
+  background: #f65164;
+  color: white;
+  min-width: 140px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.txt_hgt {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.fnt14 {
+  font-size: 14px;
+}
+
+.mrgn-2 {
+  margin-bottom: -2px;
+}
+.plr_img {
+  max-width: 425px;
+}
+.plr_img_wdt {
+  height: 110px;
+  max-width: 100px;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 760px) {
+  .trdng_tms_lst {
+    height: 180px;
+    flex-direction: column;
+    padding: 16px 0px;
+    border-radius: 20px;
+  }
+  .trdng_tms_card_outer {
+    margin-bottom: 40px;
+  }
+  .trdng_tms_card {
+    width: 260px;
+    height: 280px;
+  }
+  .mb_bt {
+    margin-bottom: 40px;
+  }
+  .news_card1 {
+    margin: 50px;
+    width: 100%;
+  }
+  .trdng_plr_lst_iner {
+    justify-content: center;
+  }
+  .trdng_plr_lst_iner_img_bck {
+    height: 129px;
+  }
+  .plr_img_wdt {
+    height: 129px;
+  }
+  .gnt_btn {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .gnt_btn_cntr {
+    text-align: center;
+    font-size: 26px;
+    margin: 12px 0px;
+  }
+}
+
+@media only screen and (max-width: 525px) {
+  .btn_drct_Plr {
+    flex-direction: column;
+  }
+  .mt_tp {
+    margin-top: 10px;
+  }
+
+  .plr_img {
+    max-width: 220px;
+  }
+
+  .gnt_btn_cntr {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .trdng_tms_lst {
+    height: 225px;
+  }
+  .btn_drct {
+    flex-direction: column;
+  }
+  .btn_mgrn_tp {
+    margin-top: 18px;
+  }
+  .news_pddng {
+    padding: 0px;
+  }
+}

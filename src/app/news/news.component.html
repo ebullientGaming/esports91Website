@@ -1,0 +1,34 @@
+<p>news works!</p>
+<!-- main app container -->
+<div *ngIf="loader" class="loader_container">
+  <mat-progress-spinner
+    style="top: 40%; left: 50%"
+    mode="indeterminate"
+  ></mat-progress-spinner>
+</div>
+<div class="main min_hght">
+  <div class="container">
+    <div class="row justify-content-around mt-5">
+      <div class="news_card1" *ngFor="let news of newsDetails">
+        <a (click)="gotoNews(news)" style="text-decoration: none">
+          <div class="news_card1-logo">
+            <img
+              [src]="getImageUrl(news?.image)"
+              class="img-fluid"
+              style="height: 250px; object-fit: cover; border-radius: 20px"
+            />
+          </div>
+
+          <div style="padding: 15px">
+            <p class="news_card1-date mt-3">
+              {{ news?.title }}
+            </p>
+            <h4 class="news_card1-title">
+              {{ news?.description }}
+            </h4>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

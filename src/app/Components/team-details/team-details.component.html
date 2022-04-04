@@ -1,0 +1,307 @@
+<div class="main">
+    <section class="inner-wrap">
+        <div class="row team_detls_outer">
+            <div class="col-md-5">
+                <img [src]="getImageUrl(teamDetails?.team_logo)" style="max-height: 450px;max-width: 450px;">
+            </div>
+            <div class="col-md-7">
+                <div class="team_detls_img mb-5">
+                    <div>
+                        <p class="title_head">
+                            {{teamDetails?.name}}
+                            <span class="watermark">{{pos}}</span>
+                        </p>
+
+                    </div>
+                    <div>
+                        <img src="assets/images/icons/pubg.png">
+                    </div>
+                </div>
+                <div class="team_detls_hdr" style="margin-bottom: 30px;">
+                    <div class="text-center gray_clr">Matches<br>Recorded<br><span class="cl_pnk">{{teamDetails?.total_matches_recorded}}</span></div>
+                    <div class="text-center gray_clr">Position<br>10-8<br><span class="cl_pnk">{{teamDetails?.total_under_top_10}}</span></div>
+                    <div class="text-center gray_clr">Position<br>5-7<br><span class="cl_pnk">{{teamDetails?.total_under_top_5}}</span></div>
+                    <div class="text-center gray_clr">Position<br>4-6<br><span class="cl_pnk">{{teamDetails?.total_under_top_3}}</span></div>
+                    <div class="text-center gray_clr">Position<br>1-3<br><span class="cl_pnk">{{teamDetails?.total_under_top_3}}</span></div>
+                </div>
+                <div class="brdr" style="    margin-bottom: 30px;">
+
+                </div>
+                <div class="updn_btn mb-5">
+                    <div class="text-center"> 
+                        <button class="btn" [ngClass]="getUpVoteClass('team',teamDetails?.id)"  (click)="upVote('team',teamDetails?.id)">
+                            <img src="assets/images/icons/up_red.png"
+                                style="width: 15px; margin-right: 10px;margin-bottom: 3px;">
+                            <span style="margin-right: 10px;" >Upvote</span>{{teamDetails.upvote_score}}
+                        </button>
+                        <!-- <button class="btn"
+                            style="margin-right: 15px;background: #FF0882; color: white;padding: 8px 22px;">
+                            <img src="assets/images/icons/up.png"
+                                style="width: 15px; margin-right: 10px;margin-bottom: 3px;">
+                            <span style="margin-right: 10px;">Upvote</span>
+                        </button> -->
+                        <button class="btn" [ngClass]="getDownVoteClass('team',teamDetails.id)" (click)="downVote('team',teamDetails.id)">
+                            <img src="assets/images/icons/down_red.png"
+                                style="width: 15px; margin-right: 10px;">
+                            <span style="margin-right: 10px;">Downvote</span>{{teamDetails.downvote_score}}
+                        </button>
+                    </div>
+                </div>
+                <div class="tab_outer">
+                    <mat-tab-group>
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+                                <span style="font-weight: 600;width: 50%;">Overview</span>
+                            </ng-template>
+                            <div class="container mb-5 mt-3">
+                                <div class="row">
+                                    <div class="col-md-12">
+
+
+
+
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <ul class="widget w-personal-info mt-3"
+                                                        style="list-style-type: none;">
+                                                        <li>
+                                                            <span class="title">Platform</span>
+                                                            <span class="text">{{teamDetails?.platform ?
+                                                                teamDetails?.platform :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Tier</span>
+                                                            <span class="text">{{teamDetails?.tier ?
+                                                                teamDetails?.tier :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Location</span>
+                                                            <span class="text">{{teamDetails?.location ?
+                                                                teamDetails?.location :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Region</span>
+                                                            <span class="text">{{teamDetails?.region ?
+                                                                teamDetails?.region :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Active Since</span>
+                                                            <span class="text">{{teamDetails?.active_since ?
+                                                                teamDetails?.active_since :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+
+                                                        <li>
+                                                            <span class="title">Team social links</span>
+                                                            <span class="text"><img src="assets/images/icons/youtube_red.png" class="plt_img"> {{teamDetails?.social_links ?
+                                                                teamDetails?.social_links :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">&nbsp;</span>
+                                                            <span class="text"><img src="assets/images/icons/loco_red.png" style="width: 32px;margin-right: 10px"> {{'&nbsp;'}}</span>
+                                                        </li> <li>
+                                                            <span class="title">&nbsp;</span>
+                                                            <span class="text"><img src="assets/images/icons/facebook_red.png" style="   
+                                                             width: 16 px;
+                                                                    margin-right: 20px;
+                                                                    margin-left: 7px;"> {{teamDetails?.social_links ?
+                                                                teamDetails?.social_links :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">&nbsp;</span>
+                                                            <span class="text"><img src="assets/images/icons/instagram_red.png" style="width: 26px;
+                                                                    margin-left: 6 px;
+                                                                    margin-right: 16px;"> {{teamDetails?.social_links ?
+                                                                teamDetails?.social_links :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+
+
+                                                        <li>
+                                                            <span class="title">Prize money</span>
+                                                            <span class="text">{{teamDetails?.prize_money ?
+                                                                teamDetails?.prize_money :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Bootcamp Location</span>
+                                                            <span class="text">{{teamDetails?.bootcamp_location ?
+                                                                teamDetails?.bootcamp_location :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Content Creator</span>
+                                                            <span class="text">{{teamDetails?.content_creators[0]?.name
+                                                                ? teamDetails?.content_creators[0]?.name :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+                                                        <li>
+                                                            <span class="title">Coach</span>
+                                                            <span class="text">{{teamDetails?.coaches[0]?.name ?
+                                                                teamDetails?.coaches[0]?.name :
+                                                                '&nbsp;'}}</span>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-tab>
+                        <mat-tab>
+                            <ng-template mat-tab-label>
+
+                                <span style="font-weight: 600;width: 50%;">Roasters</span>
+                            </ng-template>
+                            <div class="container mb-5 mt-3">
+                                <div class="row">
+                                    <div class="col-md-12">
+
+                                        <mat-tab-group>
+                                            <mat-tab>
+                                                <ng-template mat-tab-label>
+
+                                                    <span style="font-weight: 600;">Active Players</span>
+                                                </ng-template>
+                                                <div class="container mb-5 mt-4">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+                                                            <mat-accordion>
+
+                                                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                                    (closed)="panelOpenState = false"
+                                                                    *ngFor="let squad of teamDetails?.squad_data">
+                                                                    <mat-expansion-panel-header>
+                                                                        <mat-panel-title>
+                                                                            {{squad?.name}} <img
+                                                                                src="assets/images/icons/squad.png"
+                                                                                style="width: 20px;margin-left: 20px;">
+                                                                        </mat-panel-title>
+                                                                        <mat-panel-description>
+
+                                                                        </mat-panel-description>
+                                                                    </mat-expansion-panel-header>
+                                                                    <div class="mb-3"
+                                                                        *ngFor="let player of squad?.players">
+                                                                        <span><img [src]="getImageUrl(player?.profile_pic)" class="profile_pic_sz"></span>
+                                                                        <span
+                                                                            style="color:#D0D0D0;">{{player?.name}}</span>
+                                                                    </div>
+                                                                </mat-expansion-panel>
+                                                                <!-- <mat-expansion-panel (opened)="panelOpenState = true"
+                                                                    (closed)="panelOpenState = false">
+                                                                    <mat-expansion-panel-header>
+                                                                        <mat-panel-title>
+                                                                            Squad 2 <img src="assets/images/icons/squad.png" style="width: 20px;margin-left: 20px;">
+                                                                        </mat-panel-title>
+                                                                        <mat-panel-description>
+                                                                        </mat-panel-description>
+                                                                    </mat-expansion-panel-header>
+                                                                    <p>I'm visible because I am open</p>
+                                                                </mat-expansion-panel>
+                                                                <mat-expansion-panel (opened)="panelOpenState = true"
+                                                                    (closed)="panelOpenState = false">
+                                                                    <mat-expansion-panel-header>
+                                                                        <mat-panel-title>
+                                                                            Squad 3 <img src="assets/images/icons/squad.png" style="width: 20px;margin-left: 20px;">
+                                                                        </mat-panel-title>
+                                                                        <mat-panel-description>
+                                                                
+                                                                        </mat-panel-description>
+                                                                    </mat-expansion-panel-header>
+                                                                    <p>I'm visible because I am open</p>
+                                                                </mat-expansion-panel> -->
+                                                            </mat-accordion>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </mat-tab>
+                                            <mat-tab>
+                                                <ng-template mat-tab-label>
+
+                                                    <span style="font-weight: 600;">Content Creators</span>
+                                                </ng-template>
+                                                <div class="container mb-5 mt-4">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+                                                            <div class="mb-3"
+                                                                *ngFor="let creators of teamDetails?.content_creators">
+                                                                <span><img [src]="getImageUrl(creators?.profile_pic)" class="profile_pic_sz"></span>
+                                                                <span style="color:#D0D0D0;">{{creators?.name}}</span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </mat-tab>
+                                            <mat-tab>
+                                                <ng-template mat-tab-label>
+                                                    <span style="font-weight: 600;">Former Players</span>
+                                                </ng-template>
+                                                <div class="container mb-5 mt-4">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+                                                            <div class="mb-3"
+                                                                *ngFor="let player of teamDetails?.former_players">
+                                                                <span *ngIf="player?.profile_pic"><img
+                                                                        [src]="getImageUrl(player?.profile_pic)" class="profile_pic_sz"></span>
+                                                                <span *ngIf="!player?.profile_pic"><img
+                                                                        [src]="sampleUserPlaceholderImages" class="profile_pic_sz"></span>
+                                                                <span style="color:#D0D0D0;">{{player?.name}}</span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </mat-tab>
+                                            <mat-tab>
+                                                <ng-template mat-tab-label>
+                                                    <span style="font-weight: 600;">Coaches</span>
+                                                </ng-template>
+                                                <div class="container mb-5 mt-4">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+                                                            <div class="mb-3"
+                                                                *ngFor="let coaches of teamDetails?.coaches">
+                                                                <span *ngIf="coaches?.profile_pic"><img
+                                                                        [src]="getImageUrl(coaches?.profile_pic)" class="profile_pic_sz"></span>
+                                                                <span *ngIf="!coaches?.profile_pic"><img
+                                                                        [src]="sampleUserPlaceholderImages" class="profile_pic_sz"></span>
+                                                                <span style="color:#D0D0D0;">{{coaches?.name}}</span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </mat-tab>
+                                        </mat-tab-group>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-tab>
+
+                    </mat-tab-group>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<app-login-popup #loginPopup (loadDataEvent)="loadData()"></app-login-popup>

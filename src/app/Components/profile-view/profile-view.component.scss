@@ -1,0 +1,82 @@
+.prfl_det {
+  color: #fff;
+  background: #2d325a;
+  border-radius: 10px;
+  text-align: center;
+  padding: 0px 130px 50px 130px;
+  margin-bottom: 40px;
+}
+.prfl_link_det {
+  color: white;
+  background: #2d325a;
+  padding: 40px;
+  margin: 90px;
+}
+.profile_pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.prfl_det_inner {
+  position: relative;
+  top: -44px;
+}
+.dlt_btn {
+  background: rgba(74, 80, 125, 0.6);
+  width: 130px;
+}
+.edt_btn {
+  width: 20px;
+  margin-left: 10px;
+}
+.trsh_btn_img {
+  width: 20px;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+.crt_lnk_pos {
+  margin: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.prfl_btn {
+  background: #ff0882;
+  color: white;
+  width: 280px;
+  padding: 15px 10px;
+  border-radius: 7px;
+}
+.inner-wrap-profile {
+  margin: 0 auto;
+  max-width: 850px;
+  width: 100%;
+}
+.main {
+  padding: 60px;
+  position: relative;
+  min-height: 100vh;
+}
+.bottom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .prfl_det {
+    padding: 0;
+    padding-bottom: 15px;
+  }
+  .prfl_btn {
+    width: 200px;
+    padding: 6px;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+}
