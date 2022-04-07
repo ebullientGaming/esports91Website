@@ -185,63 +185,16 @@
                   </li>
                   <li>
                     <span class="title">Platform</span>
-                    <span class="text"
+                    <span class="text" *ngIf="playerDetails?.youtube_subscriber_count !== null && playerDetails?.youtube_subscriber_count !== '0'; else insta"
                       ><img
                         src="assets/images/icons/youtube_red.png"
                         class="plt_img"
                       />
-                      {{
-                        playerDetails?.youtube_subscriber_update_date
-                          ? playerDetails?.youtube_subscriber_update_date
-                          : "&nbsp;"
-                      }}</span
-                    >
-                  </li>
-                  <li>
+                      {{playerDetails?.youtube_subscriber_count}}
+                    </span>
+                  <li *ngIf="playerDetails?.youtube_subscriber_count !== null && playerDetails?.youtube_subscriber_count !== '0'">
                     <span class="title">&nbsp;</span>
-                    <span class="text"
-                      ><img
-                        src="assets/images/icons/loco_red.png"
-                        style="width: 32px; margin-right: 10px"
-                      />
-                      {{ "&nbsp;" }}</span
-                    >
-                  </li>
-                  <li>
-                    <span class="title">&nbsp;</span>
-                    <span class="text"
-                      ><img
-                        src="assets/images/icons/facebook_red.png"
-                        style="
-                          width: 16 px;
-                          margin-right: 20px;
-                          margin-left: 7px;
-                        "
-                      />
-                      {{
-                        playerDetails?.facebook_handle
-                          ? playerDetails?.facebook_handle
-                          : "&nbsp;"
-                      }}</span
-                    >
-                  </li>
-                  <li>
-                    <span class="title">&nbsp;</span>
-                    <span class="text"
-                      ><img
-                        src="assets/images/icons/instagram_red.png"
-                        style="
-                          width: 26px;
-                          margin-left: 6 px;
-                          margin-right: 16px;
-                        "
-                      />
-                      {{
-                        playerDetails?.instagram_followers_update_date
-                          ? playerDetails?.instagram_followers_update_date
-                          : "&nbsp;"
-                      }}</span
-                    >
+                    <ng-container *ngTemplateOutlet="insta"></ng-container>
                   </li>
                 </ul>
               </div>
@@ -253,4 +206,17 @@
   </section>
 </div>
 
+<ng-template #insta>
+  <span class="text"  *ngIf="playerDetails?.instagram_followers_count && playerDetails?.instagram_followers_count > 0">
+    <img
+      src="assets/images/icons/instagram_red.png"
+      style="
+        width: 26px;
+        margin-left: 6 px;
+        margin-right: 16px;
+      "
+    />
+    {{playerDetails?.instagram_followers_count}}
+  </span>
+</ng-template>
 <app-login-popup #loginPopup (loadDataEvent)="loadData()"></app-login-popup>
