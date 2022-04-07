@@ -26,6 +26,8 @@
   width: 100%;
   transition: 0.5s all ease-in-out;
 }
+
+
 @media only screen and (max-width: 760px) {
   .news_card1 {
     margin: 50px;
@@ -35,4 +37,20 @@
   .news_pddng {
     padding: 0px;
   }
+}
+
+
+/*========style 07-04-2022=========*/
+
+.nw-ttl {
+  font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.nw-ttl:hover {
+  color: #ff0882;
 }
