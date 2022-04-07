@@ -14,3 +14,32 @@
   margin: 30px;
   padding-bottom: 30px;
 }
+
+.nw-ttl {
+  font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.5;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+
+.descrp_news {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+@media (min-width:991px) {
+  .custm_cont {
+    max-width: 842px;
+  }
+}
