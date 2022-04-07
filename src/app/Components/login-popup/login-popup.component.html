@@ -66,7 +66,7 @@
                   SEND OTP
                 </button>
                 <button
-                  class="btn snd_btn"
+                  class="btn snd_btn mb-3"
                   (click)="login()"
                   *ngIf="isSendOtp"
                   style="
@@ -79,6 +79,21 @@
                   "
                 >
                   LOGIN
+                </button>
+                <button
+                  class="btn snd_btn"
+                  (click)="isSendOtp = false"
+                  *ngIf="isSendOtp"
+                  style="
+                    margin-left: 27px;
+                    width: 83%;
+                    height: 45px;
+                    border-radius: 10px;
+                    font-size: 14px;
+                    font-weight: 600;
+                  "
+                >
+                  Change Mobile Number
                 </button>
               </div>
               <div class="mt-2 text-center" *ngIf="isSendOtp">

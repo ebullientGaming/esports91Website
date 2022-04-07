@@ -134,15 +134,7 @@ export class ProfileComponent implements OnInit {
         categories: [],
         labels: {
           style: {
-            colors: [
-              '#FFFFFF',
-              '#FFFFFF',
-              '#FFFFFF',
-              '#FFFFFF',
-              '#FFFFFF',
-              '#FFFFFF',
-              '#FFFFFF',
-            ],
+            colors: '#FFFFFF',
             fontSize: '12px',
           },
         },
@@ -183,15 +175,7 @@ export class ProfileComponent implements OnInit {
         categories: [],
         labels: {
           style: {
-            colors: [
-              '#FFFFFF',
-              '#FFFFFF',
-              '#FFFFFF',
-              '#FFFFFF',
-              '#FFFFFF',
-              '#FFFFFF',
-              '#FFFFFF',
-            ],
+            colors: '#FFFFFF',
             fontSize: '12px',
           },
         },
