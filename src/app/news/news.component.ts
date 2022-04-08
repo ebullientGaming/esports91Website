@@ -28,6 +28,7 @@ export class NewsComponent implements OnInit {
     }, (err) => {
       //this.loader = false;
     });
+    
   }
 
   gotoNews(news){

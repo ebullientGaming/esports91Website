@@ -8,6 +8,8 @@
   }
 body{
     background-color: #1e223f !important;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
 }
 nav{
     // background: #2D325A;
@@ -96,3 +98,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     opacity: 0.8;
     z-index: 99;
   }
+
+  a.navbar-brand {
+    height: 62px;
+}

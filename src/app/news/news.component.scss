@@ -67,6 +67,8 @@
   font-weight: normal;
   font-size: 17px;
   line-height: 1.6;
+  max-height: 245px;
+  overflow: hidden;
 }
 
 p.anchor_readmore {
@@ -90,3 +92,15 @@ p.anchor_readmore svg {
   position: relative;
   top: -1px;
 }
+
+p.short_descrp_styele {
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 1.6;
+  // max-height: 245px;
+  overflow: hidden;
+  color: white;
+}
+

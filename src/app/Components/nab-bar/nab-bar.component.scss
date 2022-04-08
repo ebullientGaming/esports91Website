@@ -65,3 +65,44 @@
 .btn_prfl:focus {
   box-shadow: none;
 }
+
+
+.navbar-light .navbar-nav .nav-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: rgba(255, 255, 255, 0.32);
+}
+
+.input-group-btn {
+  background: #3B4067;
+  border-radius: 5px 0px 0px 5px;
+  padding: 8px;
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+  text-align: center;
+  font-size: 14px;
+  
+}
+.custom_contr {
+  background: #3B4067;
+  border-radius: 0px 5px 5px 0px;
+  padding: 8px;
+  height: 40px;
+  border: none;
+    outline: none;
+    font-size: 14px;
+    color: #ffffff;
+    
+}
+.cust_src button{
+ font: 20px;
+ padding: 0px;
+ font-size: 14px;
+}
+
+button.btn.lgin.login_cust {
+  height: 40px;
+}
