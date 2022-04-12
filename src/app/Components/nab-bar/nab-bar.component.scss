@@ -72,7 +72,7 @@
   font-size: 16px;
   padding-left: 15px;
   padding-right: 15px;
-  color: rgba(255, 255, 255, 0.32);
+  color: rgb(255 255 255);
 }
 
 .input-group-btn {
@@ -105,4 +105,41 @@
 
 button.btn.lgin.login_cust {
   height: 40px;
+}
+
+nav.custom_design_nv {
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+  border-bottom: 0px;
+}
+.input-group-btn.cust_src {
+  border: 1px solid #ffffff;
+  border-right: 0px;
+  color: #ffffff;
+  background-color: transparent;
+}
+.cust_src  button.btn.btn-default {
+  color: #ffffff;
+  background: transparent;
+  border: none;
+}
+
+.custom_contr {
+  border: 1px solid #ffffff !important;
+  border-left: 0px !important;
+  background: transparent !important;
+  color: #ffff !important;
+}
+.custom_contr::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ffff !important;
+  opacity: 1; /* Firefox */
+}
+
+.custom_contr:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ffff !important;
+}
+
+.custom_contr::-ms-input-placeholder { /* Microsoft Edge */
+  color: #ffff !important;
 }
