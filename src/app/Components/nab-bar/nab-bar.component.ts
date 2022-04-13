@@ -94,6 +94,8 @@ export class NabBarComponent implements OnInit {
     this.refresh();
   }
   logIn() {
+    this.loginPopup.isSendOtp = false;
+    this.loginPopup.loginValue = '';
     this.loginPopup.show('Home');
   }
 }
