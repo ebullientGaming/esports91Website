@@ -19,7 +19,7 @@ export class LoginPopupComponent implements OnInit {
   @ViewChild('createOrEditModal', { static: true }) modal: ModalDirective;
   active = false;
   saving = false;
-  loginValue: any;
+  loginValue: string = '';
   otp: any;
   isSendOtp = false;
   eventTYpe: any = '';
@@ -37,14 +37,27 @@ export class LoginPopupComponent implements OnInit {
   ngOnInit(): void {
     this.interval = interval(1000);
   }
-  onOtpChange(otp) {
+  onOtpChange(otp: string) {
     this.otp = otp;
+
+    if(this.otp.length === 4){
+      this.login();
+    }
   }
   show(type?: any): void {
     this.eventTYpe = type;
     this.modal.show();
   }
   save() {
+    if(!this.loginValue){
+      this.toastr.error('Mobile Number can not be empty.');
+      return;
+    }
+    let regex =  /^(\+\d{1,3}[- ]?)?\d{10}$/g;
+    if(!this.loginValue.match(regex)) {
+      this.toastr.error('Mobile Number is invalid.');
+      return;
+    }
     this.loginRequest();
     this.countTimer();
   }
