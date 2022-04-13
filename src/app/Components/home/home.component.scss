@@ -156,6 +156,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .trdng_tms_card {
   background: #40456e;
@@ -306,7 +307,18 @@ body {
   max-width: 100px;
   object-fit: cover;
 }
-
+.box_absolute {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-75%);
+  text-align: center;
+}
+.top_tm_hdd {
+  font-size: 16px;
+  font-weight: 600;
+  padding-top: 20px;
+}
 @media only screen and (max-width: 760px) {
   .trdng_tms_lst {
     height: 180px;
@@ -381,6 +393,8 @@ body {
 
 .slider{
   position: relative;
+  top: -101px;
+    margin-bottom: -101px;
 }
 
 .slider:before {
@@ -391,4 +405,76 @@ body {
   position: absolute;
   display: block;
   z-index: 9;
+}
+.left_home_hd {
+  float: none !important;
+  text-align: left;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+.right_home_hd {
+  float: none !important;
+  text-align: right;
+  width: 100%;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+.right_home_hd a {
+transition: 0.5s;
+ }
+.right_home_hd a:hover {
+ color: #ffffff;
+}
+
+p.news_card1-date.mt-3 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+  transition: 0.5s;
+  cursor: pointer;
+}
+h4.news_card1-title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+}
+
+p.anchor_readmore {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: 'Poppins', sans-serif;
+  padding-top: 15px;
+  transition: 0.3s;
+}
+p.anchor_readmore:hover {
+  color: #ff0882;
+}
+
+p.anchor_readmore span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  padding-right: 10px;
+  // color: #fff;
+  transition: 0.5s;
+}
+p.anchor_readmore:hover span{
+  color: #ff0882;
+}
+p.anchor_readmore svg {
+  width: 14px;
+  position: relative;
+  top: -1px;
+}
+.gnt_btn_cntr.mobile_hddng {
+  font-size: 28px;
+  max-width: 532px;
+  padding-bottom: 14px;
+  line-height: 36px;
 }
