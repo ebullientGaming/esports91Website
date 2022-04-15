@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/Services/api.service';
 import { CommonService } from 'src/app/Services/common.service';
@@ -15,7 +15,7 @@ import {
   ApexFill,
   ApexStroke,
 } from 'ng-apexcharts';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 class Player {
   value: any;
   name: any;
@@ -69,7 +69,7 @@ interface Food {
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, AfterViewInit {
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   public profileChartOptions: Partial<ChartOptions>;
@@ -91,7 +91,8 @@ export class ProfileComponent implements OnInit {
     private api: ApiService,
     private common: CommonService,
     private toastr: ToastrService,
-    private _router: Router
+    private _router: Router,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -110,6 +111,15 @@ export class ProfileComponent implements OnInit {
     this.intialChartOPtion();
     this.getVoteDetails();
     this.getProfileData();
+  }
+
+  ngAfterViewInit(): void {
+    this.route.queryParams.subscribe((queryParams) => {
+      if(queryParams['scrollTo'] === 'createLinks'){
+        let ele =document.getElementById("createLinks");
+        ele.scrollIntoView();
+      }
+    });
   }
 
   intialChartOPtion() {
