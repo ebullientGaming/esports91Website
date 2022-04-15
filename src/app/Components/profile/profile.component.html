@@ -114,31 +114,35 @@
     <div class="plyr_tem">
       <div>
         <div class="mb_15">Voted Player</div>
-        <div *ngFor="let item of players" class="voted_tm">
-          <div>
-            <img
-              [src]="getImageUrl(item.profile_pic_without_bg)"
-              style="height: 136px; object-fit: cover"
-            />
+        <ng-container *ngIf="players.length > 0;else noRecord">
+          <div *ngFor="let item of players" class="voted_tm">
+            <div>
+              <img
+                [src]="getImageUrl(item.profile_pic_without_bg)"
+                style="height: 136px; object-fit: cover"
+              />
+            </div>
+            <div [ngClass]="getUPDownVoteClass(item.isUporDown)">
+              {{ item.ign }}
+            </div>
           </div>
-          <div [ngClass]="getUPDownVoteClass(item.isUporDown)">
-            {{ item.ign }}
-          </div>
-        </div>
+        </ng-container>
       </div>
       <div>
         <div class="mb_15">Voted Teams</div>
-        <div *ngFor="let item of teams" class="voted_tm">
-          <div>
-            <img
-              [src]="getImageUrl(item.team_logo)"
-              style="height: 136px; object-fit: cover"
-            />
+        <ng-container *ngIf="teams.length > 0;else noRecord">
+          <div *ngFor="let item of teams" class="voted_tm">
+            <div>
+              <img
+                [src]="getImageUrl(item.team_logo)"
+                style="height: 136px; object-fit: cover"
+              />
+            </div>
+            <div [ngClass]="getUPDownVoteClass(item.isUporDown)">
+              {{ item.name }} {{ item.isUporDown }}
+            </div>
           </div>
-          <div [ngClass]="getUPDownVoteClass(item.isUporDown)">
-            {{ item.name }} {{ item.isUporDown }}
-          </div>
-        </div>
+        </ng-container>
       </div>
     </div>
     <div class="white_clr crt_lnk_pos">
@@ -573,3 +577,7 @@
   <!-- <p-toast position="bottom-left" key="bl"></p-toast> -->
 </div>
 <!-- profile modal end -->
+
+<ng-template #noRecord>
+  <em style="font-size: small; color: #ccc;">No records to display</em>
+</ng-template>
