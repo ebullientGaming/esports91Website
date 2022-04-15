@@ -238,25 +238,24 @@
       <div class="row">
         <div class="col-md-5">
           <div
-            class="trdng_tms_card_outer"
+            class="trendingPlayer_first"
             *ngFor="let data of trendingTeam | slice: 0:1; let i = index"
           >
-            <div
-              class="trdng_tms_card trdng_tms_card_bck_img"
-              [ngStyle]="{
-                'background-image': 'url(' + getImageUrl(data?.team_logo) + ')'
-              }"
-              style="filter: blur(2px)"
-            ></div>
-            <div class="box_absolute"
+            <div class="trendingPlayer_first_img crsr_pntr crsr_pntr"
              
               (click)="gotoTeams(data)"
             >
               <img
+                class="plr_img"
                 [src]="getImageUrl(data?.team_logo)"
-                style="max-width: 110px; max-height: 110px;"
               />
-              <div class="top_tm_hdd">{{ data?.name }}</div>
+            </div>
+            <div
+              class="mt-3 mb-3 crsr_pntr crsr_pntr"
+              style="font-size: 22px"
+              (click)="gotoTeams(data)"
+            >
+              {{ data.name }}
             </div>
 
             <div class="d-flex">
@@ -293,56 +292,50 @@
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-6">
-          <div *ngFor="let data of trendingTeam | slice: 1:5; let i = index">
-            <div style="position: relative">
-              <div class="trdng_tms_lst">
-                <div
-                  style="display: flex; align-items: center"
-                  (click)="gotoTeams(data)"
-                >
-                
-                  <div class="trand_tms" >
-                    <div class="teams_back_blur" ></div>
-                    <img
-                      [src]="getImageUrl(data?.team_logo)"
-                    />
-                  </div>
-                  <div
-                    style="margin-left: 15px; max-width: 100px; font-size: 18px"
-                  >
-                    {{ data?.name }}
-                  </div>
-                </div>
-                <div class="d-flex btn_drct">
-                  <button
-                    class="btn btn_mgrn_tp"
-                    [ngClass]="getUpVoteClass('team', data.id)"
-                    (click)="upVote('team', data.id)"
-                  >
-                    <img
-                      src="assets/images/icons/up_red.png"
-                      style="
-                        width: 15px;
-                        margin-right: 10px;
-                        margin-bottom: 3px;
-                      "
-                    />
-                    <span style="margin-right: 10px">Upvote</span
-                    >{{ data.upvote_score }}
-                  </button>
-                  <button
-                    class="btn btn_mgrn_tp"
-                    [ngClass]="getDownVoteClass('team', data.id)"
-                    (click)="downVote('team', data.id)"
-                  >
-                    <img
-                      src="assets/images/icons/down_red.png"
-                      style="width: 15px; margin-right: 10px"
-                    />
-                    <span style="margin-right: 10px">Downvote</span
-                    >{{ data.downvote_score }}
-                  </button>
-                </div>
+          <div class="trdng_plr_lst">
+            <div class="trdng_plr_lst_iner" *ngFor="let data of trendingTeam | slice: 1:5; let i = index">
+              <div
+              class="trdng_plr_lst_iner_img_bck crsr_pntr"
+              (click)="gotoTeams(data)">
+                <img
+                  [src]="getImageUrl(data?.team_logo)"
+                  class="plr_img_wdt"
+                />
+              </div>
+            <div>
+            <div (click)="gotoTeams(data)" class="txt_hgt crsr_pntr">
+              {{ data?.name }}
+            </div>
+            <div class="d-flex btn_drct_Plr">
+              <button
+              class="btn btn_mgrn_tp"
+              [ngClass]="getUpVoteClass('team', data.id)"
+              (click)="upVote('team', data.id)"
+              >
+              <img
+                src="assets/images/icons/up_red.png"
+                style="
+                width: 15px;
+                margin-right: 10px;
+                margin-bottom: 3px;
+                "
+              />
+              <span style="margin-right: 10px">Upvote</span
+              >{{ data.upvote_score }}
+              </button>
+              <button
+              class="btn btn_mgrn_tp"
+              [ngClass]="getDownVoteClass('team', data.id)"
+              (click)="downVote('team', data.id)"
+              >
+              <img
+                src="assets/images/icons/down_red.png"
+                style="width: 15px; margin-right: 10px"
+              />
+              <span style="margin-right: 10px">Downvote</span
+              >{{ data.downvote_score }}
+              </button>
+            </div>
               </div>
             </div>
           </div>
