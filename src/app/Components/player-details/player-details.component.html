@@ -4,7 +4,7 @@
       <div class="col-md-5">
         <img
           [src]="getImageUrl(playerDetails?.profile_pic_without_bg)"
-          style="max-height: 450px; max-width: 450px"
+          class="img-fluid"
         />
       </div>
       <div class="col-md-7">
@@ -22,36 +22,36 @@
             />
           </div>
         </div>
-        <div class="team_detls_hdr mb-5">
-          <div class="text-center gray_clr">
+        <div class="team_detls_hdr cust_m-t">
+          <div class="text-center gray_clr font_style_ds">
             Matches<br />Recorded<br /><span class="cl_pnk">{{
               playerDetails?.total_matches_recorded
             }}</span>
           </div>
-          <div class="text-center gray_clr">
+          <div class="text-center gray_clr font_style_ds">
             Position<br />10-8<br /><span class="cl_pnk">{{
               playerDetails?.total_under_top_10
             }}</span>
           </div>
-          <div class="text-center gray_clr">
+          <div class="text-center gray_clr font_style_ds">
             Position<br />5-7<br /><span class="cl_pnk">{{
               playerDetails?.total_under_top_5
             }}</span>
           </div>
-          <div class="text-center gray_clr">
+          <div class="text-center gray_clr font_style_ds">
             Position<br />4-6<br /><span class="cl_pnk">{{
               playerDetails?.total_under_top_3
             }}</span>
           </div>
-          <div class="text-center gray_clr">
-            Position<br />1-3<br /><span class="cl_pnk">{{
-              playerDetails?.total_under_top_3
-            }}</span>
+          <div class="text-center gray_clr font_style_ds">
+            Position<br />1-3<br /><span class="cl_pnk">
+              {{playerDetails?.total_under_top_3}} 
+          </span>
           </div>
         </div>
         <div class="brdr mb-5"></div>
         <div class="updn_btn mb-5">
-          <div class="text-center">
+          <div class="text-center txt_flx_btn">
             <button
               class="btn"
               [ngClass]="getUpVoteClass('player', playerDetails?.id)"

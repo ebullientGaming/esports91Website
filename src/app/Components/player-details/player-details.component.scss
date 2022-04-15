@@ -82,7 +82,7 @@
 .w-personal-info,
 .w-search .form-group {
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 .w-personal-info li {
   margin-bottom: 22px;
@@ -94,10 +94,12 @@
   margin-right: 30px;
   float: left;
   width: 25%;
+  font-size: 16px;
 }
 .w-personal-info li .text {
-  color: #d0d0d0;
+  color: #ffffff;
   width: 65%;
+  font-size: 16px;
 }
 
 .title_head {
@@ -187,4 +189,44 @@
   margin: 0;
   padding: 0;
   box-shadow: none;
+}
+.font_style_ds {
+  font-size: 14px;
+}
+.font_style_ds .cl_pnk {
+  color: #ff0882;
+  font-size: 28px;
+  font-weight: 700;
+}
+.cust_m-t {
+  padding-bottom: 25px;
+}
+.txt_flx_btn {
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  justify-content: center;
+}
+button.btn.upVote {
+  margin-right: 15px;
+  border: 2px solid #ff0882;
+  // color: #ff0882;
+  min-width: 140px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+button.btn.downVote {
+  margin-right: 15px;
+  border: 2px solid #f65164;
+  // color: #f65164;
+  min-width: 140px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
 }
