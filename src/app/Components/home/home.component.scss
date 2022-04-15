@@ -319,6 +319,37 @@ body {
   font-weight: 600;
   padding-top: 20px;
 }
+
+.trand_tms img {
+  width: 65px;
+    height: 65px;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+}
+.trand_tms {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  left: -20px;
+  margin-right: -20px;
+}
+.trand_tms .teams_back_blur {
+  border-radius: 100%;
+  background: url(http://159.65.148.113/media/team_logo/600px-Chemin_Esports_full_allmode.png) #1a1e40;
+  object-fit: cover;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
 @media only screen and (max-width: 760px) {
   .trdng_tms_lst {
     height: 180px;

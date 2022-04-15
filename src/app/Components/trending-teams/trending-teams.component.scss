@@ -12,7 +12,8 @@
     margin: 40px 0px;
     background: #2d325a;
     border-radius: 10px;
-    max-height: 100px;
+    max-height: 90px;
+    min-height: 90px;
 }
 .trdnPlr_img_det{
     display: flex;
@@ -23,21 +24,33 @@
     align-items: center;
 }
 .pg_hdng{
-    font-size: 26px;
+    font-size: 28px;
     color: white;
-    font-weight: 500;
+    font-weight: 700;
     text-align: center;
     margin-bottom: 80px;
 }
 .trdnPlr_img_det_img{
-    width: 120px;
+    width: 90px;
     margin-right: 10px;
 }
+.trdnPlr_img_det_img img {
+  max-width: 90px;
+  max-height: 90px;
+  position: relative;
+  top: 0px;
+  object-fit: contain;
+  vertical-align: bottom;
+}
+
 .trdnPlr_img_det_pos{
     width: 50px;
 }
 .trdnPlr_img_det_name{
     width: 150px;
+}
+.trdnPlr_img_det_name a {
+  font-weight: 700;
 }
 .txt-pnk{
     color: #FF0882;

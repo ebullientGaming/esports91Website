@@ -18,12 +18,7 @@
         <div class="trdnPlr_img_det_img">
           <img
             [src]="getImageUrl(item?.profile_pic_without_bg)"
-            style="
-              max-width: 110px;
-              max-height: 110px;
-              position: relative;
-              top: -5px;
-            "
+            class="img-fluid"
           />
         </div>
         <div class="trdnPlr_img_det_name">
@@ -70,7 +65,7 @@
         >
           <img
             src="assets/images/icons/up_red.png"
-            style="width: 15px; margin-right: 10px; margin-bottom: 3px"
+            style="width: 15px; margin-right: 10px; margin-bottom: 0px"
           />
           <span style="margin-right: 10px">Upvote</span>{{ item.upvote_score }}
         </button>

@@ -300,10 +300,11 @@
                   style="display: flex; align-items: center"
                   (click)="gotoTeams(data)"
                 >
-                  <div>
+                
+                  <div class="trand_tms" >
+                    <div class="teams_back_blur" ></div>
                     <img
                       [src]="getImageUrl(data?.team_logo)"
-                      style="width: 90px; height: 90px; border-radius: 100%"
                     />
                   </div>
                   <div

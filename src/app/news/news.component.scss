@@ -57,6 +57,7 @@
     font-family: 'Poppins', sans-serif;
     transition: 0.5s;
     cursor: pointer;
+    min-height: 85px;
 }
 .nw-ttl:hover {
   color: #ff0882;
@@ -69,6 +70,7 @@
   line-height: 1.6;
   max-height: 245px;
   overflow: hidden;
+  min-height: 245px;
 }
 
 p.anchor_readmore {
