@@ -11,6 +11,7 @@
                 #{{i +1}}
             </div>
             <div class="trdnPlr_img_det_img">
+                <div class="style_tt_thum" [style.background-image]="'url(' + getImageUrl(item?.team_logo) + ')'"></div>
                 <img [src]="getImageUrl(item?.team_logo)" class="img-fluid">
             </div>
             <div class="trdnPlr_img_det_name">

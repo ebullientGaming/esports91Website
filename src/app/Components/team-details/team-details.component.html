@@ -2,7 +2,11 @@
     <section class="inner-wrap">
         <div class="row team_detls_outer">
             <div class="col-md-5">
-                <img [src]="getImageUrl(teamDetails?.team_logo)" style="max-height: 450px;max-width: 450px;">
+                <div class="stem_dtils">
+                    <div class="details_dp_img" [style.background-image]="'url(' + getImageUrl(teamDetails?.team_logo) + ')'"></div>
+                    <img [src]="getImageUrl(teamDetails?.team_logo)"  class="img-fluid ">
+                </div>
+                
             </div>
             <div class="col-md-7">
                 <div class="team_detls_img mb-5">
@@ -41,7 +45,7 @@
                     </div>
                 </div>
                 <div class="tab_outer">
-                    <mat-tab-group>
+                    <mat-tab-group >
                         <mat-tab>
                             <ng-template mat-tab-label>
                                 <span style="font-weight: 600;width: 50%;">Overview</span>
@@ -91,29 +95,54 @@
 
                                                         <li>
                                                             <span class="title">Team social links</span>
-                                                            <span class="text"><img src="assets/images/icons/youtube_red.png" class="plt_img"> {{teamDetails?.social_links ?
+                                                            <span class="text ptr_srt">
+                                                                <span class="scl_inc"><img src="assets/images/icons/youtube_red.png" class="plt_img"> </span>
+                                                                
+                                                                <span class="socil_lnks">
+                                                                {{teamDetails?.social_links ?
                                                                 teamDetails?.social_links :
-                                                                '&nbsp;'}}</span>
+                                                                '&nbsp;'}}
+                                                                </span>
+                                                            </span>
                                                         </li>
                                                         <li>
                                                             <span class="title">&nbsp;</span>
-                                                            <span class="text"><img src="assets/images/icons/loco_red.png" style="width: 32px;margin-right: 10px"> {{'&nbsp;'}}</span>
+                                                            <span class="text ptr_srt">
+                                                                <span class="scl_inc"><img src="assets/images/icons/loco_red.png" class="plt_img"></span>
+                                                               
+                                                                 <span class="socil_lnks">
+                                                                    {{'&nbsp;'}}
+                                                                </span>
+                                                            </span>
                                                         </li> <li>
                                                             <span class="title">&nbsp;</span>
-                                                            <span class="text"><img src="assets/images/icons/facebook_red.png" style="   
-                                                             width: 16 px;
-                                                                    margin-right: 20px;
-                                                                    margin-left: 7px;"> {{teamDetails?.social_links ?
-                                                                teamDetails?.social_links :
-                                                                '&nbsp;'}}</span>
+                                                            <span class="text ptr_srt">
+                                                                <span class="scl_inc">
+                                                                    <img src="assets/images/icons/facebook_red.png" class="plt_img"> 
+                                                                </span>
+                                                                
+                                                                    <span class="socil_lnks">
+                                                                        
+                                                                        {{teamDetails?.social_links ?
+                                                                            teamDetails?.social_links :
+                                                                            '&nbsp;'}}
+                                                                    </span>
+                                                                    
+                                                            </span>
                                                         </li>
                                                         <li>
                                                             <span class="title">&nbsp;</span>
-                                                            <span class="text"><img src="assets/images/icons/instagram_red.png" style="width: 26px;
-                                                                    margin-left: 6 px;
-                                                                    margin-right: 16px;"> {{teamDetails?.social_links ?
+                                                            <span class="text ptr_srt">
+                                                                <span class="scl_inc">
+                                                                    <img src="assets/images/icons/instagram_red.png" class="plt_img"> 
+                                                                </span>
+                                                                
+                                                                    <span class="socil_lnks">
+                                                                    {{teamDetails?.social_links ?
                                                                 teamDetails?.social_links :
-                                                                '&nbsp;'}}</span>
+                                                                '&nbsp;'}}
+                                                                        </span>
+                                                            </span>
                                                         </li>
 
 
@@ -161,22 +190,22 @@
                                 <div class="row">
                                     <div class="col-md-12">
 
-                                        <mat-tab-group>
+                                        <mat-tab-group class="tab_grps">
                                             <mat-tab>
                                                 <ng-template mat-tab-label>
 
                                                     <span style="font-weight: 600;">Active Players</span>
                                                 </ng-template>
-                                                <div class="container mb-5 mt-4">
+                                                <div class="container mb-5 mt-4 innr_tabs">
                                                     <div class="row">
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-12 m0-lft_r">
 
                                                             <mat-accordion>
 
                                                                 <mat-expansion-panel (opened)="panelOpenState = true"
                                                                     (closed)="panelOpenState = false"
-                                                                    *ngFor="let squad of teamDetails?.squad_data">
-                                                                    <mat-expansion-panel-header>
+                                                                    *ngFor="let squad of teamDetails?.squad_data" >
+                                                                    <mat-expansion-panel-header class="mat_act">
                                                                         <mat-panel-title>
                                                                             {{squad?.name}} <img
                                                                                 src="assets/images/icons/squad.png"
@@ -186,9 +215,11 @@
 
                                                                         </mat-panel-description>
                                                                     </mat-expansion-panel-header>
-                                                                    <div class="mb-3"
+                                                                    <div class="mb-3 ply_accdn"
                                                                         *ngFor="let player of squad?.players">
-                                                                        <span><img [src]="getImageUrl(player?.profile_pic)" class="profile_pic_sz"></span>
+                                                                        <span>
+                                                                            <img [src]="getImageUrl(player?.profile_pic)" class="profile_pic_sz">
+                                                                        </span>
                                                                         <span
                                                                             style="color:#D0D0D0;">{{player?.name}}</span>
                                                                     </div>
@@ -223,18 +254,18 @@
                                                 </div>
                                             </mat-tab>
                                             <mat-tab>
-                                                <ng-template mat-tab-label>
+                                                <ng-template mat-tab-label >
 
                                                     <span style="font-weight: 600;">Content Creators</span>
                                                 </ng-template>
-                                                <div class="container mb-5 mt-4">
+                                                <div class="container mb-5 mt-4 innr_tabs">
                                                     <div class="row">
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-12 m0-lft_r2">
 
                                                             <div class="mb-3"
                                                                 *ngFor="let creators of teamDetails?.content_creators">
                                                                 <span><img [src]="getImageUrl(creators?.profile_pic)" class="profile_pic_sz"></span>
-                                                                <span style="color:#D0D0D0;">{{creators?.name}}</span>
+                                                                <span style="color:#D0D0D0;" class="ply_nm_dtals">{{creators?.name}}</span>
                                                             </div>
 
                                                         </div>
@@ -245,7 +276,7 @@
                                                 <ng-template mat-tab-label>
                                                     <span style="font-weight: 600;">Former Players</span>
                                                 </ng-template>
-                                                <div class="container mb-5 mt-4">
+                                                <div class="container mb-5 mt-4 innr_tabs">
                                                     <div class="row">
                                                         <div class="col-md-12">
 
@@ -255,7 +286,7 @@
                                                                         [src]="getImageUrl(player?.profile_pic)" class="profile_pic_sz"></span>
                                                                 <span *ngIf="!player?.profile_pic"><img
                                                                         [src]="sampleUserPlaceholderImages" class="profile_pic_sz"></span>
-                                                                <span style="color:#D0D0D0;">{{player?.name}}</span>
+                                                                <span style="color:#D0D0D0;" class="ply_nm_dtals">{{player?.name}}</span>
                                                             </div>
 
                                                         </div>
@@ -266,7 +297,7 @@
                                                 <ng-template mat-tab-label>
                                                     <span style="font-weight: 600;">Coaches</span>
                                                 </ng-template>
-                                                <div class="container mb-5 mt-4">
+                                                <div class="container mb-5 mt-4 innr_tabs">
                                                     <div class="row">
                                                         <div class="col-md-12">
 
@@ -276,7 +307,7 @@
                                                                         [src]="getImageUrl(coaches?.profile_pic)" class="profile_pic_sz"></span>
                                                                 <span *ngIf="!coaches?.profile_pic"><img
                                                                         [src]="sampleUserPlaceholderImages" class="profile_pic_sz"></span>
-                                                                <span style="color:#D0D0D0;">{{coaches?.name}}</span>
+                                                                <span style="color:#D0D0D0;" class="ply_nm_dtals">{{coaches?.name}}</span>
                                                             </div>
 
                                                         </div>

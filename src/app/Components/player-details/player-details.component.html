@@ -15,11 +15,15 @@
               <span class="watermark">{{ pos }}</span>
             </p>
           </div>
-          <div>
-            <img
-              [src]="getImageUrl(playerDetails?.squad_data[0]?.team__team_logo)"
-              style="width: 100px"
-            />
+          <div class="ply_dtails_bg_wrap">
+            <div class="pl_wpar">
+              <div class="ply_dtails_bg" [style.background-image]="'url(' + getImageUrl(playerDetails?.squad_data[0]?.team__team_logo) + ')'"></div>
+              <img
+                [src]="getImageUrl(playerDetails?.squad_data[0]?.team__team_logo)"
+              class="img-fluid icon_ply_dtail"
+              />
+            </div>
+           
           </div>
         </div>
         <div class="team_detls_hdr cust_m-t">
