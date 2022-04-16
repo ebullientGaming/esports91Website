@@ -143,3 +143,10 @@ nav.custom_design_nv {
 .custom_contr::-ms-input-placeholder { /* Microsoft Edge */
   color: #ffff !important;
 }
+
+
+@media (max-width:767px) {
+  .nav-pddng{
+    padding: 10px 0px 8px;
+}
+}
