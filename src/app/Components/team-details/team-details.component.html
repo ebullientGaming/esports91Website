@@ -91,29 +91,10 @@
 
                                                         <li>
                                                             <span class="title">Team social links</span>
-                                                            <span class="text"><img src="assets/images/icons/youtube_red.png" class="plt_img"> {{teamDetails?.social_links ?
-                                                                teamDetails?.social_links :
-                                                                '&nbsp;'}}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span class="title">&nbsp;</span>
-                                                            <span class="text"><img src="assets/images/icons/loco_red.png" style="width: 32px;margin-right: 10px"> {{'&nbsp;'}}</span>
-                                                        </li> <li>
-                                                            <span class="title">&nbsp;</span>
-                                                            <span class="text"><img src="assets/images/icons/facebook_red.png" style="   
-                                                             width: 16 px;
-                                                                    margin-right: 20px;
-                                                                    margin-left: 7px;"> {{teamDetails?.social_links ?
-                                                                teamDetails?.social_links :
-                                                                '&nbsp;'}}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span class="title">&nbsp;</span>
-                                                            <span class="text"><img src="assets/images/icons/instagram_red.png" style="width: 26px;
-                                                                    margin-left: 6 px;
-                                                                    margin-right: 16px;"> {{teamDetails?.social_links ?
-                                                                teamDetails?.social_links :
-                                                                '&nbsp;'}}</span>
+                                                            <span class="text" *ngIf="youtubeLink"><a [href]="youtubeLink" target="_blank"><img src="assets/images/icons/youtube_red.png" class="plt_img"></a></span>
+                                                            <span class="text" *ngIf="instaLink"><a [href]="instaLink" target="_blank"><img src="assets/images/icons/instagram_red.png"  style="width: 26px;
+                                                                margin-left: 6 px;
+                                                                margin-right: 16px;"></a></span>
                                                         </li>
 
 

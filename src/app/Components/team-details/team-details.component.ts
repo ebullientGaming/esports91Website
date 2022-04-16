@@ -21,6 +21,8 @@ export class TeamDetailsComponent implements OnInit {
   trendingPlayer: any = [];
   trendingTeam: any = [];
   voteDetails: any;
+  youtubeLink: string;
+  instaLink: string;
   constructor(
     private api: ApiService,
     private common: CommonService,
@@ -40,6 +42,19 @@ export class TeamDetailsComponent implements OnInit {
     this.common.getWitoutAuthService(`${url}${this.teamId}`).subscribe(
       (res) => {
         this.teamDetails = res['data'];
+        if(this.teamDetails?.social_links){
+          let links = this.teamDetails?.social_links.split(",");
+          const youtubeReg = /^(https?\:\/\/)?(www\.youtube\.com|youtu\.be)\/.+$/g;
+          const instaReg = /instagram/g;
+          links.forEach(element => {
+            if(element.match(youtubeReg)) {
+              this.youtubeLink = element.trim();
+            }
+            if(element.match(instaReg)) { 
+              this.instaLink = element.trim();
+            }
+          });
+        }
       },
       (err) => {}
     );
