@@ -2,10 +2,11 @@
   background: #383d67;
   border: none;
   width: 260px;
-  height: 36px;
+  height: 40px;
   border-radius: 8px;
   color: white;
   padding-left: 10px;
+  font-size: 16px;
 }
 .snd_btn {
   background: #ff0882;
@@ -41,8 +42,27 @@
   border: #383d67 !important;
   color: white;
   font-size: 16px !important;
-  margin-right: 20px !important;
+  // margin-right: 20px !important;
 }
 .ng_otp {
   padding-left: 23px;
+}
+.form-group label {
+  text-align: center;
+}
+::ng-deep .wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.ng_otp {
+  padding-left: 0px;
+  width: 83%;
+  margin: 0 auto;
+}
+
+@media (max-width:767px) {
+  .modal.show .modal-dialog {
+      margin: 0 auto;
+  }
 }

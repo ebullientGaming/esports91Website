@@ -149,4 +149,38 @@ nav.custom_design_nv {
   .nav-pddng{
     padding: 10px 0px 8px;
 }
+.nv_log {
+  width: 50%;
+  text-align: left;
+}
+.hovr_btn_res {
+  width: 50%;
+  text-align: right;
+}
+.collapse.show {
+  background: #1e223f;
+  padding-bottom: 20px;
+}
+.lgin {
+  margin-right: 0px;
+  background: #ff0882;
+  color: white;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-left: 0px;
+  width: 100%;
+}
+button.navbar-toggler {
+  background: #ffffff;
+  position: relative;
+  right: 15px;
+  top: -8px;
+}
+.nv_log a img {
+  position: relative;
+  top: -5px;
+}
 }
