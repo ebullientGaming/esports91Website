@@ -238,18 +238,27 @@
       <div class="row">
         <div class="col-md-5">
           <div
-            class="trendingPlayer_first"
+            class="trdng_tms_card_outer"
             *ngFor="let data of trendingTeam | slice: 0:1; let i = index"
           >
-            <div class="trendingPlayer_first_img crsr_pntr crsr_pntr"
+            <div
+              class="trdng_tms_card trdng_tms_card_bck_img crsr_pntr"
+              [ngStyle]="{
+                'background-image': 'url(' + getImageUrl(data?.team_logo) + ')'
+              }"
+              style="filter: blur(2px)"
+              (click)="gotoTeams(data)"
+            ></div>
+            <div class="box_absolute crsr_pntr"
              
               (click)="gotoTeams(data)"
             >
               <img
-                class="plr_img"
                 [src]="getImageUrl(data?.team_logo)"
+                style="max-width: 110px; max-height: 110px;"
               />
             </div>
+            
             <div
               class="mt-3 mb-3 crsr_pntr crsr_pntr"
               style="font-size: 22px"
