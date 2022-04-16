@@ -96,52 +96,8 @@
                                                         <li>
                                                             <span class="title">Team social links</span>
                                                             <span class="text ptr_srt">
-                                                                <span class="scl_inc"><img src="assets/images/icons/youtube_red.png" class="plt_img"> </span>
-                                                                
-                                                                <span class="socil_lnks">
-                                                                {{teamDetails?.social_links ?
-                                                                teamDetails?.social_links :
-                                                                '&nbsp;'}}
-                                                                </span>
-                                                            </span>
-                                                        </li>
-                                                        <li>
-                                                            <span class="title">&nbsp;</span>
-                                                            <span class="text ptr_srt">
-                                                                <span class="scl_inc"><img src="assets/images/icons/loco_red.png" class="plt_img"></span>
-                                                               
-                                                                 <span class="socil_lnks">
-                                                                    {{'&nbsp;'}}
-                                                                </span>
-                                                            </span>
-                                                        </li> <li>
-                                                            <span class="title">&nbsp;</span>
-                                                            <span class="text ptr_srt">
-                                                                <span class="scl_inc">
-                                                                    <img src="assets/images/icons/facebook_red.png" class="plt_img"> 
-                                                                </span>
-                                                                
-                                                                    <span class="socil_lnks">
-                                                                        
-                                                                        {{teamDetails?.social_links ?
-                                                                            teamDetails?.social_links :
-                                                                            '&nbsp;'}}
-                                                                    </span>
-                                                                    
-                                                            </span>
-                                                        </li>
-                                                        <li>
-                                                            <span class="title">&nbsp;</span>
-                                                            <span class="text ptr_srt">
-                                                                <span class="scl_inc">
-                                                                    <img src="assets/images/icons/instagram_red.png" class="plt_img"> 
-                                                                </span>
-                                                                
-                                                                    <span class="socil_lnks">
-                                                                    {{teamDetails?.social_links ?
-                                                                teamDetails?.social_links :
-                                                                '&nbsp;'}}
-                                                                        </span>
+                                                                <a *ngIf="youtubeLink" [href]="youtubeLink" target="_blank"><img src="assets/images/icons/youtube_red.png" class="plt_img"></a>
+                                                                <a *ngIf="instaLink" [href]="instaLink" target="_blank"><img src="assets/images/icons/instagram_red.png" class="plt_img"></a>
                                                             </span>
                                                         </li>
 
