@@ -35,7 +35,7 @@
   color: white;
   opacity: 1 !important;
   background: #FF0882;
-  border-radius: 12px;
+  // border-radius: 12px;
 }
 
 
@@ -47,6 +47,7 @@
   background: #2D325A;
    // padding: 10px;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 :host::ng-deep .mat-tab-label{
@@ -60,7 +61,8 @@
 
 .mat-accordion .mat-expansion-panel:not(.mat-expanded), .mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
   border-radius: 0;
-  background: #2D325A;
+  background: #2d325a;
+  box-shadow: none;
 }
 
 .mat-expansion-panel-header-title {
@@ -82,20 +84,27 @@
 
 .searches-item .friend-count, .w-personal-info, .w-search .form-group {
   margin-bottom: 0;
-  font-size: 14px;
+  font-size: 16px;
 }
 .w-personal-info li {
   margin-bottom: 22px;
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  width: 100%;
+  word-break: break-all;
 }
 .w-personal-info li .title {
   color: #A7A7A7;
   font-weight: 500;
   margin-right: 30px;
   float: left;
-  width: 25%;
+  width: 35%;
 }
 .w-personal-info li .text {
-  color: #D0D0D0;
+  width: 75%;
+  color: #ffffff;
+  font-size: 16px;
 
 }
 
@@ -103,6 +112,7 @@
   position: relative;
   z-index: 2;
   font-size: 35px;
+  font-weight: 600;
 }
 
 .watermark{
@@ -112,6 +122,7 @@
   font-size: 92px;
   z-index: 0;
     color: rgba(255, 255, 255, 0.05);
+    font-weight: 700;
 }
 .cl_pnk{
   color: #FF0882;
@@ -124,9 +135,12 @@
   border-radius: 50%;
   margin-right: 15px;
   object-fit: cover;
+  background: #ffffff;
 }
 
-
+span.ply_nm_dtals {
+  font-size: 16px;
+}
 
 
 .upVoteActive img{
@@ -142,8 +156,12 @@
 }
 
 .plt_img{
-  width: 30px;
+  width: 40px;
   margin-right: 10px;
+  height: 40px;
+  object-fit: contain;
+  position: relative;
+  top: 3px;
 }
 
 .upVote{
@@ -151,12 +169,17 @@
     border: 2px solid #FF0882;
     color: #FF0882;
     min-width: 160px;
+    font-size: 16px;
+    height: 40px;
+
 }
 .downVote{
   margin-right: 15px;
     border: 2px solid #F65164;
     color: #F65164;
     min-width: 160px;
+    font-size: 16px;
+    height: 40px;
 }
 .upVoteActive{
   margin-right: 15px;
@@ -183,4 +206,114 @@
 }
 .downVote:hover img{
   content:url("/assets/images/icons/down_white.png");
+}
+.stem_dtils {
+  position: relative;
+  max-width: 300px;
+  max-height: 300px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #eaeaea7a;
+}
+.details_dp_img {
+  max-width: 300px;
+  max-height: 300px;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  background-repeat: no-repeat;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  opacity: 0.5;
+}
+
+.stem_dtils img.img-fluid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 210px;
+}
+
+span.text.ptr_srt {
+  display: flex;
+  align-items: flex-start;
+}
+
+span.scl_inc {
+  max-width: 60px;
+    width: 100%;
+    text-align: left;
+    height: 70px;
+}
+// .mat-tab-header-pagination-chevron {
+//   color: #ffffff !important;
+// }
+.mat-tab-header-pagination-chevron {
+  border-color: rgb(255 255 255 / 87%);
+}
+
+.tab_grps {
+  margin: 10px 0px;
+}
+.m0-lft_r {
+  padding-left: 0px;
+    padding-right: 0px;
+    margin: 10px 0px;
+    box-sizing: border-box;
+}
+.m0-lft_r2{
+    margin: 10px 0px;
+    box-sizing: border-box;
+}
+::ng-deep .mat-expansion-panel-header-description {
+  color: rgb(255 255 255);
+}
+::ng-deep .mat-expansion-indicator::after {
+  color: rgb(255 255 255);
+}
+::ng-deep .mat-tab-header-pagination-chevron {
+  border-color: rgb(255 255 255);
+}
+::ng-deep .mat-tab-header-pagination-disabled .mat-tab-header-pagination-chevron {
+  border-color: rgb(255 255 255);
+}
+.mat_act {
+  position: relative;
+  margin-bottom: 10px;
+}
+::ng-deep .mat_act.mat-expanded:before {
+  content: "";
+  width: 100%;
+  position: absolute;
+  bottom: 5px;
+  left: 24px;
+  width: 93%;
+  padding: 0 24px;
+  background: #ffffff52;
+  height: 1px;
+}
+.ply_accdn{
+  min-height: 55px;
+  margin: 10px 0px;
+}
+
+::ng-deep .tab_grps .mat-tab-label {
+  border-radius: 10px;
+}
+// .mmtt_lbl {
+//   border-radius: 10px;
+// }
+.ply_dtails_bg_wrap {
+  position: relative;
+}
+
+
+::ng-deep .mat-tab-label-active {
+  border-radius: 0;
 }
