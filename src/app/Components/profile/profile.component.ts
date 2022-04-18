@@ -117,7 +117,9 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     this.route.queryParams.subscribe((queryParams) => {
       if(queryParams['scrollTo'] === 'createLinks'){
         let ele =document.getElementById("createLinks");
-        ele.scrollIntoView();
+        setTimeout(() => {
+          ele.scrollIntoView();
+        }, 500);
       }
     });
   }
