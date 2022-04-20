@@ -297,11 +297,21 @@ export class HomeComponent implements OnInit {
       return 'lastImg';
     }
   }
-  gotoPlayers(user) {
-    this.router.navigate(['/playerDetails'], { queryParams: { id: user.id } });
+  gotoPlayers(user, pos) {
+    let finalPos = pos + 1;
+    let length = finalPos.toString().length;
+    if (length < 2) {
+      finalPos = '0' + finalPos;
+    }
+    this.router.navigate(['/playerDetails'], { queryParams: { id: user.id, pos: finalPos } });
   }
-  gotoTeams(user) {
-    this.router.navigate(['/teamDetails'], { queryParams: { id: user.id } });
+  gotoTeams(user, pos) {
+    let finalPos = pos + 1;
+    let length = finalPos.toString().length;
+    if (length < 2) {
+      finalPos = '0' + finalPos;
+    }
+    this.router.navigate(['/teamDetails'], { queryParams: { id: user.id, pos: finalPos } });
   }
   gotoNews() {
     this.router.navigate(['/news']);

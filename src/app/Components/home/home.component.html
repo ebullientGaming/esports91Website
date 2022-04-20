@@ -120,7 +120,7 @@
           >
             <div
               class="trendingPlayer_first_img crsr_pntr crsr_pntr"
-              (click)="gotoPlayers(data)"
+              (click)="gotoPlayers(data, i)"
             >
               <img
                 [src]="getImageUrl(data?.profile_pic_without_bg)"
@@ -130,7 +130,7 @@
             <div
               class="mt-3 mb-3 crsr_pntr crsr_pntr"
               style="font-size: 22px"
-              (click)="gotoPlayers(data)"
+              (click)="gotoPlayers(data, i)"
             >
               {{ data.ign }}
             </div>
@@ -173,7 +173,7 @@
             >
               <div
                 class="trdng_plr_lst_iner_img_bck crsr_pntr"
-                (click)="gotoPlayers(data)"
+                (click)="gotoPlayers(data, i + 1)"
               >
                 <img
                   [src]="getImageUrl(data?.profile_pic_without_bg)"
@@ -182,10 +182,10 @@
                 />
               </div>
               <div>
-                <div (click)="gotoPlayers(data)" class="fnt14 mrgn-2 crsr_pntr">
+                <div (click)="gotoPlayers(data, i + 1 )" class="fnt14 mrgn-2 crsr_pntr">
                   #{{ i + 2 }}
                 </div>
-                <div (click)="gotoPlayers(data)" class="txt_hgt crsr_pntr">
+                <div (click)="gotoPlayers(data, i + 1)" class="txt_hgt crsr_pntr">
                   {{ data.ign }}
                 </div>
                 <div class="d-flex btn_drct_Plr">
@@ -247,11 +247,11 @@
                 'background-image': 'url(' + getImageUrl(data?.team_logo) + ')'
               }"
               style="filter: blur(2px)"
-              (click)="gotoTeams(data)"
+              (click)="gotoTeams(data, i)"
             ></div>
             <div class="box_absolute crsr_pntr"
              
-              (click)="gotoTeams(data)"
+              (click)="gotoTeams(data, i)"
             >
               <img
                 [src]="getImageUrl(data?.team_logo)"
@@ -262,7 +262,7 @@
             <div
               class="mt-3 mb-3 crsr_pntr crsr_pntr"
               style="font-size: 22px"
-              (click)="gotoTeams(data)"
+              (click)="gotoTeams(data, i)"
             >
               {{ data.name }}
             </div>
@@ -301,50 +301,55 @@
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-7">
-          <div class="trdng_plr_lst">
-            <div class="trdng_plr_lst_iner" *ngFor="let data of trendingTeam | slice: 1:5; let i = index">
-              <div
-              class="trdng_plr_lst_iner_img_bck crsr_pntr"
-              (click)="gotoTeams(data)">
-                <img
-                  [src]="getImageUrl(data?.team_logo)"
-                  class="plr_img_wdt"
-                />
-              </div>
-            <div>
-            <div (click)="gotoTeams(data)" class="txt_hgt crsr_pntr">
-              {{ data?.name }}
-            </div>
-            <div class="d-flex btn_drct_Plr">
-              <button
-              class="btn btn_mgrn_tp"
-              [ngClass]="getUpVoteClass('team', data.id)"
-              (click)="upVote('team', data.id)"
-              >
-              <img
-                src="assets/images/icons/up_red.png"
-                style="
-                width: 15px;
-                margin-right: 10px;
-                margin-bottom: 3px;
-                "
-              />
-              <span style="margin-right: 10px">Upvote</span
-              >{{ data.upvote_score }}
-              </button>
-              <button
-              class="btn btn_mgrn_tp"
-              [ngClass]="getDownVoteClass('team', data.id)"
-              (click)="downVote('team', data.id)"
-              >
-              <img
-                src="assets/images/icons/down_red.png"
-                style="width: 15px; margin-right: 10px"
-              />
-              <span style="margin-right: 10px">Downvote</span
-              >{{ data.downvote_score }}
-              </button>
-            </div>
+          <div *ngFor="let data of trendingTeam | slice: 1:5; let i = index">
+            <div style="position: relative">
+              <div class="trdng_tms_lst">
+                <div
+                  style="display: flex; align-items: center"
+                  (click)="gotoTeams(data, i+1)">
+                
+                  <div class="trand_tms crsr_pntr" >
+                    <div class="teams_back_blur" ></div>
+                    <img
+                      [src]="getImageUrl(data?.team_logo)"
+                    />
+                  </div>
+                  <div class="crsr_pntr"
+                    style="margin-left: 15px; max-width: 100px; font-size: 18px"
+                  >
+                    {{ data?.name }}
+                  </div>
+                </div>
+                <div class="d-flex btn_drct">
+                  <button
+                    class="btn btn_mgrn_tp"
+                    [ngClass]="getUpVoteClass('team', data.id)"
+                    (click)="upVote('team', data.id)"
+                  >
+                    <img
+                      src="assets/images/icons/up_red.png"
+                      style="
+                        width: 15px;
+                        margin-right: 10px;
+                        margin-bottom: 3px;
+                      "
+                    />
+                    <span style="margin-right: 10px">Upvote</span
+                    >{{ data.upvote_score }}
+                  </button>
+                  <button
+                    class="btn btn_mgrn_tp"
+                    [ngClass]="getDownVoteClass('team', data.id)"
+                    (click)="downVote('team', data.id)"
+                  >
+                    <img
+                      src="assets/images/icons/down_red.png"
+                      style="width: 15px; margin-right: 10px"
+                    />
+                    <span style="margin-right: 10px">Downvote</span
+                    >{{ data.downvote_score }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
