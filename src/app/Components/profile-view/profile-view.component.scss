@@ -66,7 +66,16 @@
   padding: 1rem;
   text-align: center;
 }
-
+.prfl_view_hd {
+  font-size: 20px;
+  font-weight: 700;
+}
+button.btn.prfl_btn {
+  font-size: 16px;
+  max-width: 250px;
+  padding: 0px;
+  height: 45px;
+}
 @media only screen and (max-width: 600px) {
   .prfl_det {
     padding: 0;
