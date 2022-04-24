@@ -16,4 +16,59 @@
 
 .follw_heads {
     font-size: 14px;
+
+}
+
+.footr_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-items: center;
+    padding: 20px 40px;
+    color: #71748F;
+}
+
+@media (max-width:991px) {
+    .d-flex.dflex_wrap {
+        // width: 50%;
+        flex-wrap: nowrap;
+        position: relative;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+    .ftr_menu {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    
+}
+
+@media (max-width:667px) {
+    .footr_wrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 40px;
+        color: #71748F;
+        flex-direction: column;
+    }
+    .trnd_plr_team {
+        cursor: pointer;
+        text-decoration: none;
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+    .follw_us_linkd {
+        padding-top: 30px;
+    }
+    .follw_heads {
+       text-align: center;
+        
+    }
+    .navbar-brand {
+        margin-right: 0rem;
+    }
 }
