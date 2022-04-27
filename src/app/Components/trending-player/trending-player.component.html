@@ -4,7 +4,7 @@
     mode="indeterminate"
   ></mat-progress-spinner>
 </div>
-<div class="main min_hght">
+<div *ngIf="!loader" class="main min_hght">
   <section class="inner-wrap-trdn-team">
     <div class="mt-5 pg_hdng">Trending Players</div>
     <div

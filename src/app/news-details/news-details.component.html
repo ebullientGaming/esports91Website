@@ -2,7 +2,7 @@
 <div *ngIf="loader" class="loader_container">
     <mat-progress-spinner style="top: 40%;left: 50%;" mode="indeterminate"></mat-progress-spinner>
 </div>
-<div class="main min_hght">
+<div *ngIf="!loader" class="main min_hght">
     <div class="container bg_light_blue custm_cont" style="margin-top: 50px;padding: 0;">
         <div class="cvr_img">
             <img [src]="getImageUrl(newsDetails?.image)" style="width: 100%;height: 350px;object-fit: cover;    border-radius: 0px;">

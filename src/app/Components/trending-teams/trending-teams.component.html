@@ -2,7 +2,7 @@
 <div *ngIf="loader" class="loader_container">
     <mat-progress-spinner style="top: 40%;left: 50%;" mode="indeterminate"></mat-progress-spinner>
   </div>
-<div class="main min_hght">
+<div *ngIf="!loader" class="main min_hght">
     <section class="inner-wrap-trdn-plr">
         <div class="mt-5 pg_hdng">Trending Teams</div>
     <div class="trdnPlrOuter" *ngFor="let item of trendingTeam; let i = index">

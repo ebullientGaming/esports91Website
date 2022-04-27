@@ -4,7 +4,7 @@
     mode="indeterminate"
   ></mat-progress-spinner>
 </div>
-<div class="main">
+<div *ngIf="!loader" class="main">
   <div class="slider">
     <ngb-carousel *ngIf="images">
       <ng-template ngbSlide>
