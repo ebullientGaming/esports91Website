@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="ftr_menu">  <a routerLink="/news" class="trnd_plr_team">News</a></div>
-            <div style="margin-right: 20px;" class="ftr_menu">
+            <div style="margin-right: 20px;" class="ftr_menu" *ngIf="isLogin()">
                 <div class="mb-2">
                     <a routerLink="/feedback" class="trnd_plr_team">Feedback</a>
                 </div>
@@ -27,15 +27,15 @@
                     <a></a>
                 </div>
             </div>
-            <div style="margin-right: 20px;" class="ftr_menu">
+            <div style="margin-right: 20px;" class="ftr_menu" *ngIf="isLogin()">
                 <div class="mb-2">
-                    <a routerLink="/aboutUs" class="trnd_plr_team">About Us</a>
+                    <a routerLink="/about-us" class="trnd_plr_team">About Us</a>
                 </div>
                 <div>
                     <a></a>
                 </div>
             </div>
-            <div class="ftr_menu">  <a routerLink="/privacyPolicy" class="trnd_plr_team">Privacy Policy</a></div>
+            <div class="ftr_menu" *ngIf="isLogin()">  <a routerLink="/privacy" class="trnd_plr_team">Privacy Policy</a></div>
         </div>
         <div class="follw_us_linkd">
             <div class="follw_heads">Follow us on</div>
@@ -43,7 +43,7 @@
                 <div>
                     <a href="https://www.facebook.com/esports91/" target="_blank">
                         <img src="assets/images/icons/facebook.png" style="width: 30px;
-                    background: rgba(113, 116, 143, 0.6);
+                    background: #71748f99;
                     padding: 7px;
                     border-radius: 15px;
                     margin-right: 8px">

@@ -12,4 +12,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  isLogin(): boolean{
+    return localStorage.getItem('authGame') !== null
+  }
 }

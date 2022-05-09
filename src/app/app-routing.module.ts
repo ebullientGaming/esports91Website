@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
+import { FeedbackComponent } from './Components/feedback/feedback.component';
 import { GlobalSearchComponent } from './Components/global-search/global-search.component';
 import { HomeComponent } from './Components/home/home.component';
 import { PlayerDetailsComponent } from './Components/player-details/player-details.component';
@@ -20,9 +22,11 @@ const routes: Routes = [
   {path:'trendingTeams',component:TrendingTeamsComponent},
   {path:'teamDetails', component:TeamDetailsComponent},
   {path:'playerDetails', component:PlayerDetailsComponent},
-  {path:'profile', component:ProfileComponent,canActivate: [AuthGuard]},
+  {path:'profile', component:ProfileComponent, canActivate: [AuthGuard]},
   {path:'search',component:GlobalSearchComponent},
-  {path:'privacy',component:PrivacyComponent},
+  {path:'privacy',component:PrivacyComponent, canActivate: [AuthGuard]},
+  {path:'about-us',component:AboutUsComponent, canActivate: [AuthGuard]},
+  {path:'feedback',component:FeedbackComponent, canActivate: [AuthGuard]},
   {path:'linkedtree/:id',component:ProfileViewComponent},
   {path:'news',component:NewsComponent},
   {path:'news-details',component:NewsDetailsComponent},

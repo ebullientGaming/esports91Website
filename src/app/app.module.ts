@@ -36,6 +36,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { PrivacyComponent } from './Components/privacy/privacy.component';
 import { NewsDetailsComponent } from './news-details/news-details.component';
 import { NewsComponent } from './news/news.component';
+import { AboutUsComponent } from './Components/about-us/about-us.component';
+import { FeedbackComponent } from './Components/feedback/feedback.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,9 @@ import { NewsComponent } from './news/news.component';
     ProfileViewComponent,
     PrivacyComponent,
     NewsDetailsComponent,
-    NewsComponent
+    NewsComponent,
+    AboutUsComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
