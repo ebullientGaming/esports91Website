@@ -66,3 +66,12 @@
       margin: 0 auto;
   }
 }
+
+::ng-deep .toast-error {
+  background-color: #2d325a;
+  box-shadow: 4px 3px 8px 1px #d98080;
+  -webkit-box-shadow: 4px 3px 8px 1px #de7474;
+  .toast-title {
+    color: #ff0882;
+  }
+}

@@ -50,12 +50,12 @@ export class LoginPopupComponent implements OnInit {
   }
   save() {
     if(!this.loginValue){
-      this.toastr.error('Mobile Number can not be empty.');
+      this.toastr.error('Mobile Number can not be empty.', 'Error');
       return;
     }
     let regex =  /^(\+\d{1,3}[- ]?)?\d{10}$/g;
     if(!this.loginValue.match(regex)) {
-      this.toastr.error('Mobile Number is invalid.');
+      this.toastr.error('Mobile Number is invalid.', 'Error');
       return;
     }
     this.loginRequest();
@@ -92,7 +92,7 @@ export class LoginPopupComponent implements OnInit {
           this.getUserDetails();
           this.loadDataEvent.emit();
         } else {
-          this.toastr.error(res['message']);
+          this.toastr.error(res['message'], 'Error');
         }
       },
       (err) => {
