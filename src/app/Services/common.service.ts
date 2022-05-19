@@ -51,5 +51,23 @@ export class CommonService {
       })
     };
     return this.http.get(url, httpOptions);
+  } 
+  
+  getFeedBack(){
+    var myHeaders = new Headers();
+    let auth = localStorage.getItem('authGame');
+    myHeaders.append("Authorization", auth);
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({"feedback":"asv"});
+
+    var requestOptions: RequestInit = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    return fetch("http://159.65.148.113/user_logs/set_feedback", requestOptions);
   }
 }

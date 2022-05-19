@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from 'src/app/Services/common.service';
 
 @Component({
   selector: 'app-feedback',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
 
-  constructor() { }
+  feedbackContent: string;
+
+  constructor(private common: CommonService) { }
 
   ngOnInit(): void {
+    this.common.getFeedBack()
+    .then(r => r.json()).then(j => { 
+      this.feedbackContent = j.message; 
+    });
   }
 
 }
