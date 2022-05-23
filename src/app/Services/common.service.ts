@@ -53,13 +53,13 @@ export class CommonService {
     return this.http.get(url, httpOptions);
   } 
   
-  getFeedBack(){
+  saveFeedBack(feedbackContent: string){
     var myHeaders = new Headers();
     let auth = localStorage.getItem('authGame');
     myHeaders.append("Authorization", auth);
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = JSON.stringify({"feedback":"asv"});
+    var raw = JSON.stringify({"feedback": feedbackContent});
 
     var requestOptions: RequestInit = {
       method: 'POST',

@@ -1,4 +1,16 @@
 <div style="min-height: 80vh;" id="page_1">
     <P class="p1 ft1">Feedback</P>
-    <P class="p2 ft2">{{feedbackContent}}</P>
+    <br>
+    <br>
+    <textarea class="feedback-textarea" [(ngModel)]="feedbackContent" placeholder="Enter your feedback" rows="20" cols="100"></textarea>
+
+    <br>
+    <br>
+    
+    <button
+    class="btn snd_btn" (click)="saveFeedBack()"
+    style="font-size: 14px; font-weight: 600; border-radius: 10px"
+  >
+    Save
+  </button>
 </div>
