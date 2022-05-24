@@ -19,6 +19,7 @@
   vertical-align: bottom;
   position: relative;
   top: -5px;
+  max-height: 100px;
 }
 .trdnPlr_img_det_sccr_value span.fnt-12 {
   font-size: 13px;
@@ -36,8 +37,9 @@
 }
 
 .trdnPlr_img_det_img {
-  width: 120px;
-  margin-right: 10px;
+  width: 100px;
+  margin-right: 25px;
+  text-align: center;
 }
 .trdnPlr_img_det_pos {
   width: 50px;
@@ -153,6 +155,12 @@
   .downVote {
     margin-top: 10px;
   }
+  .trdnPlr_img_det {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
 }
 
 @media only screen and (max-width: 450px) {
