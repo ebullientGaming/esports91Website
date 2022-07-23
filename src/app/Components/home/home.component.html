@@ -80,24 +80,53 @@
     </div>
   </div>
   <section class="inner-wrap">
-    <div class="upcmng_trmnts" hidden>
-      <h2>Upcoming Tournaments</h2>
-      <div class="upcmng_trmnts_outer" *ngFor="let item of items; index as i">
-        <div class="upcmng_trmnts_banner_image"></div>
-        <div class="upcmng_trmnts_dtls">
-          <div>PUBG Global Tounament</div>
-          <div class="upcmng_trmnts_dtls_inner_img">
-            <img src="/assets/images/icons/pubg.png" />
+  <div class="news_pddng">
+    <div class="row mt-4">
+      <div class="news_card1 mb-5" *ngFor="let item of tournamentData; index as i">
+        <a (click)="gotoTournamnentDetails(item)" style="text-decoration: none">
+          <div class="news_card1-logo">
+            <img src="assets/images/home/news1.png" class="img-fluid" />
           </div>
-        </div>
-        <div>
-          <img src="/assets/images/icons/calendar.png" /> 20 August 2021
-        </div>
-        <div>
-          <img src="/assets/images/icons/clock.png" /> Starts 2:00 PM IST
-        </div>
+
+          <div style="padding: 15px">
+            <div class="upcmng_trmnts_dtls">
+              <div>{{item.name}}</div>
+              <div class="upcmng_trmnts_dtls_inner_img">
+                <img src="/assets/images/icons/pubg.png" />
+              </div>
+            </div>
+            <div class="mt-2 mb-2 follw_heads">
+              <img src="/assets/images/icons/calendar.png" class="wdth_25 mrgn_right" /> {{item.start_date}}
+            </div>
+            <div class="follw_heads">
+              <img src="/assets/images/icons/clock.png" class="wdth_25 mrgn_right" /> {{item.end_date}}
+            </div>
+            <div>
+              <button type="button" class="btn btn-block mb-2 mt-3 tounament_btn">
+                <span>
+                  <!-- <img  src="assets/images/icons/bar-chart-2.png" class="trsh_btn_img"> -->
+                </span>See full details </button>
+            </div>
+            <!-- <a
+              (click)="gotoNews()"
+              class="col-4 news_card1-link"
+              style="padding: 0"
+            >
+              <p class="anchor_readmore">
+                <span>READ MORE</span>
+              </p>
+            </a> -->
+          </div>
+        </a>
       </div>
     </div>
+  </div>
+  </section>
+  <section class="inner-wrap">
+    
+   
+
+    
     <div class="trdng_plr">
       <div class="row trdn_vwall mb-5">
         <div class="col-sm-6">
@@ -389,7 +418,7 @@
     </div>
     <div class="mt-5" style="font-size: 20px; font-weight: 600">News</div>
     <div class="news_pddng">
-      <div class="row justify-content-between mt-4">
+      <div class="row mt-4">
         <div class="news_card1">
           <a (click)="gotoNews()" style="text-decoration: none">
             <div class="news_card1-logo">

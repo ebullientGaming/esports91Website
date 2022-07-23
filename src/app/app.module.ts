@@ -38,6 +38,7 @@ import { NewsDetailsComponent } from './news-details/news-details.component';
 import { NewsComponent } from './news/news.component';
 import { AboutUsComponent } from './Components/about-us/about-us.component';
 import { FeedbackComponent } from './Components/feedback/feedback.component';
+import { TournamentDetailsComponent } from './Components/tournament-details/tournament-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +57,8 @@ import { FeedbackComponent } from './Components/feedback/feedback.component';
     NewsDetailsComponent,
     NewsComponent,
     AboutUsComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    TournamentDetailsComponent
   ],
   imports: [
     BrowserModule,

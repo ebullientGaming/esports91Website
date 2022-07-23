@@ -45,7 +45,7 @@ body {
 }
 
 .news_pddng {
-  padding: 0px 20px 20px 20px;
+  padding: 0px 0px 20px 0px;
 }
 .ref_details_heading {
   font-weight: 600;
@@ -177,6 +177,8 @@ body {
   background: #2d325a;
   border-radius: 10px;
   width: 30%;
+  margin-left: 19px;
+  margin-right: 19px;
 }
 .news_card1-logo {
   overflow: hidden;
@@ -377,6 +379,20 @@ body {
 }
 .z-ind {
   z-index: 2;
+}
+
+.tounament_btn {
+  color: #FF0882;
+  font-size: 14px;
+  background: rgba(74, 80, 125, 0.6);
+  // width: 130px;
+}
+
+.tounament_btn img {
+  content: url(/assets/images/icons/bar-chart-2.png);
+  width: 20px;
+  margin-right: 10px;
+  margin-top: -2px;
 }
 
 // width: 400px

@@ -31,7 +31,7 @@
 }
 
 
-::ng-deep .mat-tab-label-active{
+:host ::ng-deep .mat-tab-label-active{
   color: white;
   opacity: 1 !important;
   background: #FF0882;

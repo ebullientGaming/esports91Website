@@ -9,6 +9,7 @@ import { PrivacyComponent } from './Components/privacy/privacy.component';
 import { ProfileViewComponent } from './Components/profile-view/profile-view.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 import { TeamDetailsComponent } from './Components/team-details/team-details.component';
+import { TournamentDetailsComponent } from './Components/tournament-details/tournament-details.component';
 import { TrendingPlayerComponent } from './Components/trending-player/trending-player.component';
 import { TrendingTeamsComponent } from './Components/trending-teams/trending-teams.component';
 import { NewsDetailsComponent } from './news-details/news-details.component';
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'linkedtree/:id',component:ProfileViewComponent},
   {path:'news',component:NewsComponent},
   {path:'news-details',component:NewsDetailsComponent},
+  {path:'tourament-details',component:TournamentDetailsComponent},
   //{path:"**",component:HomeComponent}
 ];
 

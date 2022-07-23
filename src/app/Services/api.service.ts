@@ -24,5 +24,8 @@ export class ApiService {
   set_linkedtree_stats = this.global.base_url + '/set_linkedtree_stats/'
   get_linked_tree_analytics = this.global.base_url + '/user_logs/get_linked_tree_analytics'
   get_news = this.global.base_url + '/get_news'
+  tournaments = this.global.base_url + '/tournaments'
+  get_tournament_teams = this.global.base_url + '/tournaments/get_tournament_teams'
+  get_tournament_matches = this.global.base_url + '/tournaments/get_tournament_matches'
 }
 
