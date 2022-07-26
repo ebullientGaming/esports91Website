@@ -67,24 +67,30 @@
                                                     <ul class="widget w-personal-info mt-3"
                                                         style="list-style-type: none;">
                                                         <li>
-                                                            <span class="title">Platform</span>
-                                                            <span class="text">l</span>
+                                                            <span class="title">About</span>
+                                                            <span class="text">{{tournamentData?.description ? tournamentData?.description : '&nbsp;'}}</span>
                                                         </li>
                                                         <li>
-                                                            <span class="title">Tier</span>
-                                                            <span class="text">k</span>
+                                                            <span class="title">Organiser</span>
+                                                            <span class="text">{{tournamentData?.Organizer ? tournamentData?.Organizer : '&nbsp;'}}</span>
                                                         </li>
                                                         <li>
                                                             <span class="title">Location</span>
-                                                            <span class="text">h</span>
+                                                            <span class="text">{{tournamentData?.venue ? tournamentData?.venue : '&nbsp;'}}</span>
                                                         </li>
                                                         <li>
-                                                            <span class="title">Region</span>
-                                                            <span class="text">jk</span>
+                                                            <span class="title">Start Date</span>
+                                                            <span class="text">{{tournamentData?.start_date ? tournamentData?.start_date : '&nbsp;'}}</span>
                                                         </li>
+
                                                         <li>
-                                                            <span class="title">Active Since</span>
-                                                            <span class="text">yfy</span>
+                                                            <span class="title">End Date</span>
+                                                            <span class="text">{{tournamentData?.end_date ? tournamentData?.end_date : '&nbsp;'}}</span>
+                                                        </li>
+
+                                                        <li>
+                                                            <span class="title">Caster</span>
+                                                            <span class="text">{{tournamentData?.caster ? tournamentData?.caster : '&nbsp;'}}</span>
                                                         </li>
 
                                                         <!-- <li>

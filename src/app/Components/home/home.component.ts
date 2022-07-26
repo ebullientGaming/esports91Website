@@ -196,7 +196,7 @@ export class HomeComponent implements OnInit {
     //get data from backend
     this.loader = true;
     let url = this.api.tournaments;
-    this.common.get(url).subscribe(
+    this.common.getWitoutAuthService(url).subscribe(
       (res) => {
         this.loader = false;
         this.tournamentData = res['data'];

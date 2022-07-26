@@ -25,6 +25,7 @@ export class TournamentDetailsComponent implements OnInit {
   voteDetails: any;
   youtubeLink: string;
   instaLink: string;
+  tournamentData: any;
   constructor(private api: ApiService,
     private common: CommonService,
     private _activatedRoute: ActivatedRoute,
@@ -38,6 +39,21 @@ export class TournamentDetailsComponent implements OnInit {
     this.getTournamentMatchs();
     this.getVoteDetails();
     this.getTrendingPLayerData();
+    this.getTournamentData();
+  }
+
+  getTournamentData() {
+    //get data from backend
+    let url = `${this.api.tournaments}/?id=${this.tournanentId}`;
+    this.common.get(url).subscribe(
+      (res) => {
+        this.tournamentData = res['data'][0];
+        console.log("this.tournamentData", this.tournamentData);
+      },
+      (err) => {
+        //this.loader = false;
+      }
+    );
   }
 
   getTournamentTeams() {
