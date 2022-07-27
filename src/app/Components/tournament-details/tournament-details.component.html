@@ -290,7 +290,7 @@
                                                        
                                                         <div  class="text-center">     
                                                             <div class="matchLiveIcon">Live</div>                                                  
-                                                            <div class="">
+                                                            <div class="" (click)="openLiveMatchDetails(item)">
                                                                 <div>
                                                                     <a  style="color: white;font-size: 18px;">
                                                                         {{item.name}}
@@ -432,5 +432,140 @@
             </div>
         </div>
     </section>
+
+    <!-- certificate modal start -->
+
+<div
+class="modal fade"
+id="link"
+tabindex="-1"
+role="dialog"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true"
+>
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-content cust_modal">
+    <div class="modal_close" data-dismiss="modal" aria-label="Close">
+      <img
+        src="/assets/img/ICONS/cross_white.png"
+        class="img-fluid"
+        width="100%"
+        alt=""
+      />
+    </div>
+    <div class="modal-body">
+      <div data-dismiss="modal" aria-label="Close" class="modal_close">
+        <img
+          src="/assets/images/icons/cross_white.png"
+          width="100%"
+          alt=""
+          class="img-fluid"
+        />
+      </div>
+      <ng-container class="mb-2">
+        <div class="mb-4">
+          <span style="font-weight: 600; font-size: 18px" *ngIf="true"
+            >{{currentMatch}}</span
+          >
+        </div>
+      </ng-container>
+     <div>
+        <div class="tab_outer">
+            <mat-tab-group >
+                <mat-tab>
+                    <ng-template mat-tab-label>
+
+                        <span style="font-weight: 600;">Teams</span>
+                    </ng-template>
+                    <div class="container mb-5 mt-3">
+                       
+                        <div class="row">
+                            <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <mat-accordion>
+
+                                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                        (closed)="panelOpenState = false"
+                                        *ngFor="let pointTableTeam of pointTableTeamsData" >
+                                        <mat-expansion-panel-header class="mat_act">
+                                            <mat-panel-title>
+                                                <span> <img [src]="getImageUrlTeam(pointTableTeam?.team_logo)" style="width: 20px;margin-right: 20px;"></span>
+                                                <span>{{pointTableTeam?.team_name}} </span>
+                                            </mat-panel-title>
+                                            <mat-panel-description class="mr_50">
+                                                <div class="panelDescriptionDes">
+                                                <div>{{pointTableTeam?.squad_name}} </div>
+                                                <!-- <div>{{pointTable?.placement}} </div>
+                                                <div>{{pointTable?.mr}} </div>
+                                                <div>{{pointTable?.pts}} </div> -->
+                                            </div>
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <div class="mb-3 ply_accdn"
+                                            *ngFor="let player of pointTableTeam?.all_player">
+                                            <span>
+                                                <img [src]="getImageUrl(player?.profile_pic)" class="profile_pic_sz">
+                                            </span>
+                                            <span
+                                                style="color:#D0D0D0;">{{player?.name}}</span>
+                                                <span
+                                                style="color:#D0D0D0;">{{player?.ign}}</span>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+                            </div>
+                        </div>
+        </div>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <span style="font-weight: 600;">Points Table</span>
+                    </ng-template>
+                    <div class="container mb-5 mt-3">
+                       
+                        <div class="row">
+                            <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <mat-accordion>
+
+                                    <mat-expansion-panel (opened)="panelOpenState = true"
+                                        (closed)="panelOpenState = false"
+                                        *ngFor="let pointTable of pointTableData" >
+                                        <mat-expansion-panel-header class="mat_act">
+                                            <mat-panel-title>
+                                                <span> <img src="assets/images/icons/squad.png" style="width: 20px;margin-right: 20px;"></span>
+                                                <span>{{pointTable?.name}} </span>
+                                            </mat-panel-title>
+                                            <mat-panel-description class="mr_50">
+                                                <div class="panelDescriptionDes">
+                                                <div>{{pointTable?.kills}} </div>
+                                                <div>{{pointTable?.placement}} </div>
+                                                <div>{{pointTable?.mr}} </div>
+                                                <div>{{pointTable?.pts}} </div>
+                                            </div>
+                                            </mat-panel-description>
+                                        </mat-expansion-panel-header>
+                                        <div class="mb-3 ply_accdn"
+                                            *ngFor="let player of pointTable?.players">
+                                            <span>
+                                                <img [src]="getImageUrl(player?.profile_pic)" class="profile_pic_sz">
+                                            </span>
+                                            <span
+                                                style="color:#D0D0D0;">{{player?.name}}</span>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </mat-accordion>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+
+            </mat-tab-group>
+
+        </div>
+     </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- certificate modal end -->
 </div>
 <app-login-popup #loginPopup (loadDataEvent)="loadData()"></app-login-popup>

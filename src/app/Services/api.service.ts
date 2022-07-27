@@ -27,5 +27,6 @@ export class ApiService {
   tournaments = this.global.base_url + '/tournaments'
   get_tournament_teams = this.global.base_url + '/tournaments/get_tournament_teams'
   get_tournament_matches = this.global.base_url + '/tournaments/get_tournament_matches'
+  get_tournament_match_details = this.global.base_url + '/tournaments/get_tournament_match_details'
 }
 

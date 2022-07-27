@@ -4,12 +4,13 @@ import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/Services/api.service';
 import { CommonService } from 'src/app/Services/common.service';
 import { LoginPopupComponent } from '../login-popup/login-popup.component';
-
+declare var $: any;
 @Component({
   selector: 'app-tournament-details',
   templateUrl: './tournament-details.component.html',
   styleUrls: ['./tournament-details.component.scss']
 })
+
 export class TournamentDetailsComponent implements OnInit {
   @ViewChild('loginPopup', { static: true }) loginPopup: LoginPopupComponent;
   panelOpenState = false;
@@ -26,6 +27,9 @@ export class TournamentDetailsComponent implements OnInit {
   youtubeLink: string;
   instaLink: string;
   tournamentData: any;
+  pointTableData: any[];
+  pointTableTeamsData: any[];
+  currentMatch: string;
   constructor(private api: ApiService,
     private common: CommonService,
     private _activatedRoute: ActivatedRoute,
@@ -40,12 +44,52 @@ export class TournamentDetailsComponent implements OnInit {
     this.getVoteDetails();
     this.getTrendingPLayerData();
     this.getTournamentData();
+    this.getPoitTable();
+  }
+
+  getPoitTable(){
+    this.pointTableData = [
+      {
+      name: "Hydra",
+      kills: 1,
+      placement: 1,
+      mr: 12,
+      pts:12,
+      players:[{name: "Dynamo",
+      kills: 1,
+      placement: 1,
+      mr: 12,
+      pts:12},
+      {name: "Dynamo",
+      kills: 1,
+      placement: 1,
+      mr: 12,
+      pts:12}]
+    },
+    {
+      name: "Soul",
+      kills: 1,
+      placement: 1,
+      mr: 12,
+      pts:12,
+      players:[{name: "Dynamo",
+      kills: 1,
+      placement: 1,
+      mr: 12,
+      pts:12},
+      {name: "Dynamo",
+      kills: 1,
+      placement: 1,
+      mr: 12,
+      pts:12}]
+    }
+  ];
   }
 
   getTournamentData() {
     //get data from backend
     let url = `${this.api.tournaments}/?id=${this.tournanentId}`;
-    this.common.get(url).subscribe(
+    this.common.getWitoutAuthService(url).subscribe(
       (res) => {
         this.tournamentData = res['data'][0];
         console.log("this.tournamentData", this.tournamentData);
@@ -94,6 +138,14 @@ export class TournamentDetailsComponent implements OnInit {
   getImageUrl(imageUrl) {
     if (imageUrl) {
       return 'http://159.65.148.113/media/' + imageUrl;
+    } else {
+      return 'assets/images/home/sample_player.png';
+    }
+  }
+
+  getImageUrlTeam(imageUrl) {
+    if (imageUrl) {
+      return 'http://159.65.148.113/' + imageUrl;
     } else {
       return 'assets/images/home/sample_player.png';
     }
@@ -293,6 +345,34 @@ export class TournamentDetailsComponent implements OnInit {
     this.router.navigate(['/teamDetails'], {
       queryParams: { id: user.team__id, pos: finalPos },
     });
+  }
+
+  openLiveMatchDetails(match: any){
+    debugger
+    this.currentMatch = match?.name;
+    let url = this.api.get_tournament_match_details;
+    let formdata = JSON.stringify({
+      "game_type":"PUBG",
+      "tournament_id":match?.tournament__id.toString(),
+      "match_id": match?.id.toString(),
+    });
+    this.common.postWitoutAuthService(formdata, url).subscribe(
+      (res) => {
+        if (res['success']) {
+         this.pointTableTeamsData = res['data'];
+         console.log("this.pointTableTeamsData pp", this.pointTableTeamsData);
+         $('#link').modal('show');
+        } else {
+          this.toastr.error(res['message'], 'Error');
+        }
+      },
+      (err) => {
+        //this.loader = false;
+      }
+    );
+
+    //console.log("match", match);
+   
   }
 
 }
