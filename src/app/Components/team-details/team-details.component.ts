@@ -213,6 +213,7 @@ export class TeamDetailsComponent implements OnInit {
     this.common.get(getVoteUrl).subscribe(
       (res) => {
         this.voteDetails = res['data'];
+        console.log("this.voteDetails", this.voteDetails);
       },
       (err) => {
         //this.loader = false;

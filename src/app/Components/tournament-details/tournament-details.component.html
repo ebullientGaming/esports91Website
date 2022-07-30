@@ -157,14 +157,14 @@
                                                 </div>
                                             </div>
                                             <div class="trdnPlr_img_det_vote d-flex">
-                                                <button class="btn" [ngClass]="getUpVoteClass('team',item.team__id)" (click)="upVote('team',item.team__id)">
+                                                <button class="btn" [ngClass]="getUpVoteClass('tournaments',item.team__id)" (click)="upVote('tournaments',item.team__id)">
                                                     <img src="assets/images/icons/up_red.png"
                                                         style="width: 15px; margin-right: 10px;margin-bottom: 3px;">
-                                                    <span style="margin-right: 10px;">Upvote</span>{{item.team__upvote_score}}
+                                                    <span style="margin-right: 10px;">Upvote</span>{{item.tournament_team_upvote__score}}
                                                 </button>
-                                                <button class="btn" [ngClass]="getDownVoteClass('team',item.team__id)" (click)="downVote('team',item.team__id)">
+                                                <button class="btn" [ngClass]="getDownVoteClass('tournaments',item.team__id)" (click)="downVote('tournaments',item.team__id)">
                                                     <img src="assets/images/icons/down_red.png" style="width: 15px; margin-right: 10px;">
-                                                    <span style="margin-right: 10px;">Downvote</span>{{item.team__downvote_score}}
+                                                    <span style="margin-right: 10px;">Downvote</span>{{item.tournament_team_downvote_score}}
                                                 </button>
                                             </div>
                                         </div>

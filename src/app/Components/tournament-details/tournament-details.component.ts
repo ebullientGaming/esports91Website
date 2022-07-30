@@ -162,33 +162,40 @@ export class TournamentDetailsComponent implements OnInit {
 
 
   getUpVoteClass(type, id) {
-    if (type == 'player') {
+    if (type == 'tournaments') {
       if (this.voteDetails && this.voteDetails[0]) {
-        let playerVote = this.voteDetails[0]?.votes_player[id];
+        let playerVote = this.voteDetails[0]?.votes_tournament[id];
         if (playerVote && playerVote == 1) {
           return 'upVoteActive';
         } else {
           return 'upVote';
         }
+        //return 'upVoteActive';
       } else {
         return 'downVote';
       }
-    } else if (type == 'team') {
-      if (this.voteDetails && this.voteDetails[0]) {
-        let teamVote = this.voteDetails[0]?.votes_teams[id];
-        if (teamVote && teamVote == 1) {
-          return 'upVoteActive';
-        } else {
-          return 'upVote';
-        }
-      } else {
-        return 'upVote';
-      }
-    }
+    } 
     //return "";
   }
 
+  getDownVoteClass(type, id) {
+    if (type == 'tournaments') {
+      if (this.voteDetails && this.voteDetails[0]) {
+        let playerVote = this.voteDetails[0]?.votes_tournament[id];
+        if (playerVote && playerVote == -1) {
+          return 'downVoteActive';
+        } else {
+          return 'downVote';
+        }
+        //return 'downVoteActive';
+      } else {
+        return 'downVote';
+      }
+    }
+  }
+
   upVote(type, id) {
+    debugger
     let auth = localStorage.getItem('authGame');
     if (!auth) {
       this.loginPopup.show('Home');
@@ -197,38 +204,26 @@ export class TournamentDetailsComponent implements OnInit {
       if (
         this.voteDetails &&
         this.voteDetails[0] &&
-        this.voteDetails[0]?.votes_player[id] &&
-        this.voteDetails[0]?.votes_player[id] == 1
+        this.voteDetails[0]?.votes_tournament[id] &&
+        this.voteDetails[0]?.votes_tournament[id] == 1
       ) {
         upVoteCount = '0';
       }
-      if (
-        this.voteDetails &&
-        this.voteDetails[0] &&
-        this.voteDetails[0]?.votes_teams[id] &&
-        this.voteDetails[0]?.votes_teams[id] == 1
-      ) {
-        upVoteCount = '0';
-      }
+
       var raw = JSON.stringify({
-        type: type,
-        object_id: id.toString(),
-        vote_count: upVoteCount,
+        "type": type,
+        "tournament_id" :this.tournanentId.toString(),
+        "team_id" : id.toString(),
+        "vote_count": upVoteCount.toString(),
       });
       //get data from backend
-      let url = this.api.vote;
+      let url = this.api.tournamentsVote;
       this.common.post(raw, url).subscribe(
         (res) => {
 
           if (res['success']) {
-            if (type == 'team') {
-              //this.getTeamDetails();
+              this.getVoteDetails();
               this.getTournamentTeams();
-              this.getVoteDetails();
-            } else if (type == 'player') {
-              this.getVoteDetails();
-              this.getTrendingPLayerData();
-            }
           } else {
             this.toastr.error(res['message']);
           }
@@ -249,37 +244,34 @@ export class TournamentDetailsComponent implements OnInit {
       if (
         this.voteDetails &&
         this.voteDetails[0] &&
-        this.voteDetails[0]?.votes_player[id] &&
-        this.voteDetails[0]?.votes_player[id] == -1
+        this.voteDetails[0]?.votes_tournament[id] &&
+        this.voteDetails[0]?.votes_tournament[id] == -1
       ) {
         downVoteCount = '0';
       }
-      if (
-        this.voteDetails &&
-        this.voteDetails[0] &&
-        this.voteDetails[0]?.votes_teams[id] &&
-        this.voteDetails[0]?.votes_teams[id] == -1
-      ) {
-        downVoteCount = '0';
-      }
+
       var raw = JSON.stringify({
-        type: type,
-        object_id: id.toString(),
-        vote_count: downVoteCount,
+        "type": type,
+        "tournament_id" :"2",
+        "team_id" : id.toString(),
+        "vote_count": downVoteCount.toString(),
       });
+      
       //get data from backend
-      let url = this.api.vote;
-      this.common.post(raw, url).subscribe(
+      let url = this.api.tournamentsVote;
+      this.common.postWitoutAuthService(raw, url).subscribe(
         (res) => {
           if (res['success']) {
-            if (type == 'team') {
-              //this.getTeamDetails();
-              this.getTournamentTeams();
-              this.getVoteDetails();
-            } else if (type == 'player') {
-              this.getVoteDetails();
-              this.getTrendingPLayerData();
-            }
+            // if (type == 'team') {
+            //   //this.getTeamDetails();
+            //   this.getTournamentTeams();
+            //   this.getVoteDetails();
+            // } else if (type == 'player') {
+            //   this.getVoteDetails();
+            //   this.getTrendingPLayerData();
+            // }
+            this.getVoteDetails();
+            this.getTournamentTeams();
           } else {
             this.toastr.error(res['message']);
           }
@@ -292,10 +284,11 @@ export class TournamentDetailsComponent implements OnInit {
   }
   
   getVoteDetails() {
-    let getVoteUrl = this.api.get_voting_data;
+    let getVoteUrl = this.api.get_voting_data + '?tournament_id=1';
     this.common.get(getVoteUrl).subscribe(
       (res) => {
         this.voteDetails = res['data'];
+        console.log("this.voteDetails", this.voteDetails);
       },
       (err) => {
         //this.loader = false;
@@ -303,32 +296,6 @@ export class TournamentDetailsComponent implements OnInit {
     );
   }
 
-  getDownVoteClass(type, id) {
-    if (type == 'player') {
-      if (this.voteDetails && this.voteDetails[0]) {
-        let playerVote = this.voteDetails[0]?.votes_player[id];
-        if (playerVote && playerVote == -1) {
-          return 'downVoteActive';
-        } else {
-          return 'downVote';
-        }
-      } else {
-        return 'downVote';
-      }
-    } else if (type == 'team') {
-      if (this.voteDetails && this.voteDetails[0]) {
-        let teamVote = this.voteDetails[0]?.votes_teams[id];
-        if (teamVote && teamVote == -1) {
-          return 'downVoteActive';
-        } else {
-          return 'downVote';
-        }
-      } else {
-        return 'downVote';
-      }
-    }
-    //return "";
-  }
   loadData() {
     this.getVoteDetails();
     this.refresh();
