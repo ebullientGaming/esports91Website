@@ -65,9 +65,13 @@
 }
 
 .mat-accordion .mat-expansion-panel:not(.mat-expanded), .mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing) {
-  border-radius: 0;
+  // border-radius: 0;
+  // background: #2d325a;
+  // box-shadow: none;
   background: #2d325a;
   box-shadow: none;
+  margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .mat-expansion-panel-header-title {
@@ -290,7 +294,7 @@ span.scl_inc {
 }
 .mat_act {
   position: relative;
-  margin-bottom: 10px;
+  margin: 10px;
 }
 ::ng-deep .mat_act.mat-expanded:before {
   content: "";
@@ -483,7 +487,7 @@ span.scl_inc {
   background-image: url("/assets/images/home/tourrnamnet_bg.png");
 }
 .modal-content {
-  background: #2d325a;
+  background: #1E223F;
   border-radius: 30px;
   color: white;
 }
@@ -497,10 +501,6 @@ span.scl_inc {
   cursor: pointer;
 }
 
-.cust_modal {
-  padding: 20px;
-}
-
 .mr_50{
   margin-right: 50px;
 }
@@ -510,3 +510,21 @@ span.scl_inc {
   width: 100%;
   justify-content: space-between;
 }
+
+// for modal header image style start
+.cust_modal {
+  padding: 0px 0px 20px 2px;
+}
+.modl_hdr_bg{
+  height: 110px;
+  border-radius: 28px 28px 0px 0px;
+  margin-left: -4px;
+  margin-top: -2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-custom-body{
+  padding: 0 0rem 1rem 0rem !important;
+}
+// for modal header image style end

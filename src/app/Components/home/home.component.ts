@@ -14,11 +14,13 @@ export class HomeComponent implements OnInit {
   @ViewChild('loginPopup', { static: true }) loginPopup: LoginPopupComponent;
   images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
   chartArr: any;
-  templateTypeSelected: any;
+  templateTypeSelected: any = "pubg";
   items = [1, 2, 3, 4, 5, 6, 7, 8];
   trendingPlayer: any = [];
   trendingTeam: any = [];
-  tournamentData: any = [];
+  upcomingTournamentData: any = [];
+  endedTournamentData: any = [];
+  ongoingTournamentData: any = [];
   voteDetails: any;
   loader: boolean;
   constructor(
@@ -58,8 +60,14 @@ export class HomeComponent implements OnInit {
       },
     ];
   }
-
+  getSrc(url, template){
+    if(this.templateTypeSelected == template){
+      return url + '_white.png'
+    }
+    return url  + '.png'
+  }
   getDataByTemplate(val, i) {
+    this.templateTypeSelected = val.name;
     //for future implmentations
   }
   upVote(type, id) {
@@ -199,8 +207,9 @@ export class HomeComponent implements OnInit {
     this.common.getWitoutAuthService(url).subscribe(
       (res) => {
         this.loader = false;
-        this.tournamentData = res['data'];
-        console.log("this.tournamentData", this.tournamentData);
+        this.upcomingTournamentData = res['data'].upcoming;
+        this.endedTournamentData = res['data'].ended;
+        this.ongoingTournamentData = res['data'].ongoing;
       },
       (err) => {
         this.loader = false;

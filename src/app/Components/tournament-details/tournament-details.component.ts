@@ -284,7 +284,7 @@ export class TournamentDetailsComponent implements OnInit {
   }
   
   getVoteDetails() {
-    let getVoteUrl = this.api.get_voting_data + '?tournament_id=1';
+    let getVoteUrl = this.api.get_voting_data + '?tournament_id=' + this.tournanentId;
     this.common.get(getVoteUrl).subscribe(
       (res) => {
         this.voteDetails = res['data'];
