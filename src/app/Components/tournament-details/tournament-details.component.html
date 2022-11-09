@@ -1,7 +1,5 @@
 <div class="main">
-    <div class="tournamnet_bg">
-        <!-- <img src="/assets/images/hometourrnamnet_bg.png"> -->
-    </div>
+    <div class="tournamnet_bg"> </div>
     <section class="inner-wrap">
         <div class="row team_detls_outer">
             <div class="col-md-4">
@@ -93,40 +91,6 @@
                                                             <span class="text">{{tournamentData?.caster ? tournamentData?.caster : '&nbsp;'}}</span>
                                                         </li>
 
-                                                        <!-- <li>
-                                                            <span class="title">Team social links</span>
-                                                            <span class="text ptr_srt">
-                                                                <a *ngIf="youtubeLink" [href]="youtubeLink" target="_blank"><img src="assets/images/icons/youtube_red.png" class="plt_img"></a>
-                                                                <a *ngIf="instaLink" [href]="instaLink" target="_blank"><img src="assets/images/icons/instagram_red.png" class="plt_img"></a>
-                                                            </span>
-                                                        </li> -->
-
-
-                                                        <!-- <li>
-                                                            <span class="title">Prize money</span>
-                                                            <span class="text">{{teamDetails?.prize_money ?
-                                                                teamDetails?.prize_money :
-                                                                '&nbsp;'}}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span class="title">Bootcamp Location</span>
-                                                            <span class="text">{{teamDetails?.bootcamp_location ?
-                                                                teamDetails?.bootcamp_location :
-                                                                '&nbsp;'}}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span class="title">Content Creator</span>
-                                                            <span class="text">{{teamDetails?.content_creators[0]?.name
-                                                                ? teamDetails?.content_creators[0]?.name :
-                                                                '&nbsp;'}}</span>
-                                                        </li>
-                                                        <li>
-                                                            <span class="title">Coach</span>
-                                                            <span class="text">{{teamDetails?.coaches[0]?.name ?
-                                                                teamDetails?.coaches[0]?.name :
-                                                                '&nbsp;'}}</span>
-                                                        </li> -->
-
                                                     </ul>
                                                 </div>
                                             </div>
@@ -168,110 +132,6 @@
                                                 </button>
                                             </div>
                                         </div>
-
-                                        <!-- <mat-tab-group class="tab_grps">
-                                            <mat-tab>
-                                                <ng-template mat-tab-label>
-
-                                                    <span style="font-weight: 600;">Active Players</span>
-                                                </ng-template>
-                                                <div class="container mb-5 mt-4 innr_tabs">
-                                                    <div class="row">
-                                                        <div class="col-md-12 m0-lft_r">
-
-                                                            <mat-accordion>
-
-                                                                <mat-expansion-panel (opened)="panelOpenState = true"
-                                                                    (closed)="panelOpenState = false"
-                                                                    *ngFor="let squad of teamDetails?.squad_data" >
-                                                                    <mat-expansion-panel-header class="mat_act">
-                                                                        <mat-panel-title>
-                                                                            {{squad?.name}} <img
-                                                                                src="assets/images/icons/squad.png"
-                                                                                style="width: 20px;margin-left: 20px;">
-                                                                        </mat-panel-title>
-                                                                        <mat-panel-description>
-
-                                                                        </mat-panel-description>
-                                                                    </mat-expansion-panel-header>
-                                                                    <div class="mb-3 ply_accdn"
-                                                                        *ngFor="let player of squad?.players">
-                                                                        <span>
-                                                                            <img [src]="getImageUrl(player?.profile_pic)" class="profile_pic_sz">
-                                                                        </span>
-                                                                        <span
-                                                                            style="color:#D0D0D0;">{{player?.name}}</span>
-                                                                    </div>
-                                                                </mat-expansion-panel>
-                                                            </mat-accordion>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </mat-tab>
-                                            <mat-tab>
-                                                <ng-template mat-tab-label >
-
-                                                    <span style="font-weight: 600;">Content Creators</span>
-                                                </ng-template>
-                                                <div class="container mb-5 mt-4 innr_tabs">
-                                                    <div class="row">
-                                                        <div class="col-md-12 m0-lft_r2">
-
-                                                            <div class="mb-3"
-                                                                *ngFor="let creators of teamDetails?.content_creators">
-                                                                <span><img [src]="getImageUrl(creators?.profile_pic)" class="profile_pic_sz"></span>
-                                                                <span style="color:#D0D0D0;" class="ply_nm_dtals">{{creators?.name}}</span>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </mat-tab>
-                                            <mat-tab>
-                                                <ng-template mat-tab-label>
-                                                    <span style="font-weight: 600;">Former Players</span>
-                                                </ng-template>
-                                                <div class="container mb-5 mt-4 innr_tabs">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-
-                                                            <div class="mb-3"
-                                                                *ngFor="let player of teamDetails?.former_players">
-                                                                <span *ngIf="player?.profile_pic"><img
-                                                                        [src]="getImageUrl(player?.profile_pic)" class="profile_pic_sz"></span>
-                                                                <span *ngIf="!player?.profile_pic"><img
-                                                                        [src]="sampleUserPlaceholderImages" class="profile_pic_sz"></span>
-                                                                <span style="color:#D0D0D0;" class="ply_nm_dtals">{{player?.name}}</span>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </mat-tab>
-                                            <mat-tab>
-                                                <ng-template mat-tab-label>
-                                                    <span style="font-weight: 600;">Coaches</span>
-                                                </ng-template>
-                                                <div class="container mb-5 mt-4 innr_tabs">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-
-                                                            <div class="mb-3"
-                                                                *ngFor="let coaches of teamDetails?.coaches">
-                                                                <span *ngIf="coaches?.profile_pic"><img
-                                                                        [src]="getImageUrl(coaches?.profile_pic)" class="profile_pic_sz"></span>
-                                                                <span *ngIf="!coaches?.profile_pic"><img
-                                                                        [src]="sampleUserPlaceholderImages" class="profile_pic_sz"></span>
-                                                                <span style="color:#D0D0D0;" class="ply_nm_dtals">{{coaches?.name}}</span>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </mat-tab>
-                                        </mat-tab-group> -->
-
                                     </div>
                                 </div>
                             </div>
@@ -313,109 +173,6 @@
                                                         </div>
                                                     </div>
             
-                                                    <!-- <mat-tab-group class="tab_grps">
-                                                        <mat-tab>
-                                                            <ng-template mat-tab-label>
-            
-                                                                <span style="font-weight: 600;">Active Players</span>
-                                                            </ng-template>
-                                                            <div class="container mb-5 mt-4 innr_tabs">
-                                                                <div class="row">
-                                                                    <div class="col-md-12 m0-lft_r">
-            
-                                                                        <mat-accordion>
-            
-                                                                            <mat-expansion-panel (opened)="panelOpenState = true"
-                                                                                (closed)="panelOpenState = false"
-                                                                                *ngFor="let squad of teamDetails?.squad_data" >
-                                                                                <mat-expansion-panel-header class="mat_act">
-                                                                                    <mat-panel-title>
-                                                                                        {{squad?.name}} <img
-                                                                                            src="assets/images/icons/squad.png"
-                                                                                            style="width: 20px;margin-left: 20px;">
-                                                                                    </mat-panel-title>
-                                                                                    <mat-panel-description>
-            
-                                                                                    </mat-panel-description>
-                                                                                </mat-expansion-panel-header>
-                                                                                <div class="mb-3 ply_accdn"
-                                                                                    *ngFor="let player of squad?.players">
-                                                                                    <span>
-                                                                                        <img [src]="getImageUrl(player?.profile_pic)" class="profile_pic_sz">
-                                                                                    </span>
-                                                                                    <span
-                                                                                        style="color:#D0D0D0;">{{player?.name}}</span>
-                                                                                </div>
-                                                                            </mat-expansion-panel>
-                                                                        </mat-accordion>
-            
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </mat-tab>
-                                                        <mat-tab>
-                                                            <ng-template mat-tab-label >
-            
-                                                                <span style="font-weight: 600;">Content Creators</span>
-                                                            </ng-template>
-                                                            <div class="container mb-5 mt-4 innr_tabs">
-                                                                <div class="row">
-                                                                    <div class="col-md-12 m0-lft_r2">
-            
-                                                                        <div class="mb-3"
-                                                                            *ngFor="let creators of teamDetails?.content_creators">
-                                                                            <span><img [src]="getImageUrl(creators?.profile_pic)" class="profile_pic_sz"></span>
-                                                                            <span style="color:#D0D0D0;" class="ply_nm_dtals">{{creators?.name}}</span>
-                                                                        </div>
-            
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </mat-tab>
-                                                        <mat-tab>
-                                                            <ng-template mat-tab-label>
-                                                                <span style="font-weight: 600;">Former Players</span>
-                                                            </ng-template>
-                                                            <div class="container mb-5 mt-4 innr_tabs">
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-            
-                                                                        <div class="mb-3"
-                                                                            *ngFor="let player of teamDetails?.former_players">
-                                                                            <span *ngIf="player?.profile_pic"><img
-                                                                                    [src]="getImageUrl(player?.profile_pic)" class="profile_pic_sz"></span>
-                                                                            <span *ngIf="!player?.profile_pic"><img
-                                                                                    [src]="sampleUserPlaceholderImages" class="profile_pic_sz"></span>
-                                                                            <span style="color:#D0D0D0;" class="ply_nm_dtals">{{player?.name}}</span>
-                                                                        </div>
-            
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </mat-tab>
-                                                        <mat-tab>
-                                                            <ng-template mat-tab-label>
-                                                                <span style="font-weight: 600;">Coaches</span>
-                                                            </ng-template>
-                                                            <div class="container mb-5 mt-4 innr_tabs">
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-            
-                                                                        <div class="mb-3"
-                                                                            *ngFor="let coaches of teamDetails?.coaches">
-                                                                            <span *ngIf="coaches?.profile_pic"><img
-                                                                                    [src]="getImageUrl(coaches?.profile_pic)" class="profile_pic_sz"></span>
-                                                                            <span *ngIf="!coaches?.profile_pic"><img
-                                                                                    [src]="sampleUserPlaceholderImages" class="profile_pic_sz"></span>
-                                                                            <span style="color:#D0D0D0;" class="ply_nm_dtals">{{coaches?.name}}</span>
-                                                                        </div>
-            
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </mat-tab>
-                                                    </mat-tab-group> -->
-            
                                                 </div>
                                             </div>
                                         </div>
@@ -435,14 +192,7 @@
 
     <!-- certificate modal start -->
 
-<div
-class="modal fade"
-id="link"
-tabindex="-1"
-role="dialog"
-aria-labelledby="exampleModalLabel"
-aria-hidden="true"
->
+<div class="modal fade" id="link" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
   <div class="modal-content cust_modal">
     <div class="modal_close" data-dismiss="modal" aria-label="Close">
@@ -453,7 +203,7 @@ aria-hidden="true"
         alt=""
       />
     </div>
-    <div class="modal-body">
+    <div class="modal-body modal-custom-body">
       <div data-dismiss="modal" aria-label="Close" class="modal_close">
         <img
           src="/assets/images/icons/cross_white.png"
@@ -463,10 +213,8 @@ aria-hidden="true"
         />
       </div>
       <ng-container class="mb-2">
-        <div class="mb-4">
-          <span style="font-weight: 600; font-size: 18px" *ngIf="true"
-            >{{currentMatch}}</span
-          >
+        <div class="mb-4 modl_hdr_bg" style="background-image: url('assets/images/home/tournamnet_team_bg.png');">
+          <div style="font-weight: 600; font-size: 18px">{{currentMatch}}</div>
         </div>
       </ng-container>
      <div>
@@ -494,9 +242,6 @@ aria-hidden="true"
                                             <mat-panel-description class="mr_50">
                                                 <div class="panelDescriptionDes">
                                                 <div>{{pointTableTeam?.squad_name}} </div>
-                                                <!-- <div>{{pointTable?.placement}} </div>
-                                                <div>{{pointTable?.mr}} </div>
-                                                <div>{{pointTable?.pts}} </div> -->
                                             </div>
                                             </mat-panel-description>
                                         </mat-expansion-panel-header>

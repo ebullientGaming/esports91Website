@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/Services/api.service';
 import { CommonService } from 'src/app/Services/common.service';
@@ -23,13 +24,15 @@ export class HomeComponent implements OnInit {
   ongoingTournamentData: any = [];
   voteDetails: any;
   loader: boolean;
+  showNavigationArrows = false;
   constructor(
     private api: ApiService,
     private common: CommonService,
     private toastr: ToastrService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.getTrendingPLayerData();

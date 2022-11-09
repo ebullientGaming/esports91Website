@@ -6,7 +6,7 @@
 </div>
 <div *ngIf="!loader" class="main">
   <div class="slider">
-    <ngb-carousel *ngIf="images">
+    <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows">
       <ng-template ngbSlide>
         <div class="picsum-img-wrapper">
           <img
